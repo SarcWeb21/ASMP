@@ -8,7 +8,34 @@
     </head>
     <body>
     	<div class="container height-100 d-flex justify-content-center align-items-center">
-	    	<div class="position-relative">
+	    	<div class="position-relative" id = "login-card">
+		        <div class="card p-2">
+		          	<h6>
+		          		Register
+		          	</h6>
+		          	<form>
+		          		<div>
+					    	<label for="username">Email</label>
+					    	<input type="email" id="username" name="username">
+						</div>
+						<div>
+					    	<label for="pass">Password (8 characters minimum):</label>
+					    	<input type="password" id="pass" name="password"
+					           minlength="8" required>
+						</div>          
+						<div>
+							<button class="btn btn-success" style="margin-top: 10px;" id = "show-otp-card">
+								Confirm
+							</button>
+						</div>
+		          	</form>
+		        </div>
+	    	</div>
+		</div>
+
+
+    	<div class="container height-100 d-flex justify-content-center align-items-center">
+	    	<div class="position-relative" style="display: none;" id = "otp-card">
 		        <div class="card p-2 text-center">
 		            	<h6>Please enter the one time password <br> to verify your account</h6>
 		            	<div>
