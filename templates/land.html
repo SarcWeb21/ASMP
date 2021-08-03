@@ -1,125 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<style>
-    #circle {
-background: rgb(11, 190, 50);
-border-radius: 50%;
-height: 300px;
-width: 300px;
-margin-left: 40%;
-display: inline-flex;
-align-items: center; 
-justify-content: center;
-font-size: 1.5em;
-}
-#circle, #aboutbox {
-grid-area: 1 / 1;
-}
-#about
-{
-height: 80%;
-width:80%;
-border: greenyellow;
-}
-#sect
-{
-display: grid;
-}
-#sect:hover #circle
-{
-animation: moveleft;
-animation-duration: 5s;
-animation-delay: 0.5s;
-animation-iteration-count: 1;
-animation-fill-mode: forwards;
-
-}
-#sect:hover #aboutbox
-{
-animation: moveright;
-animation-timing-function: ease;
-animation-iteration-count: 1;
-animation-duration: 5s;
-animation-delay: 0.5s;
-animation-fill-mode: forwards;   
-
-}
-/*#about:hover + #circle
-{
-background-color: #0CF;
-animation: moveleft;
-animation-duration: 5s;
-animation-delay: 0.5s;
-animation-iteration-count: 1;
-animation-fill-mode: forwards;
-
-}
-#about:hover + .aboutbox
-{
-z-index: 0;
-animation: moveright;
-animation-timing-function: ease;
-animation-duration: 5s;
-animation-delay: 0.5s;
-animation-fill-mode: forwards;   
-
-}
-
-#circle:hover .aboutbox {
-z-index: 0;
-animation: moveright;
-animation-timing-function: ease;
-animation-duration: 5s;
-animation-delay: 0.5s;
-animation-fill-mode: forwards;   
-}
-#circle:hover + .aboutbox {
-background-color:greenyellow;
-z-index: 0;
-animation: moveright;
-animation-timing-function: ease;
-animation-iteration-count: 1;
-animation-duration: 5s;
-animation-delay: 0.5s;
-animation-fill-mode: forwards;   
-}
-#circle:hover {
-background-color: #0CF;
-animation: moveleft;
-animation-duration: 5s;
-animation-delay: 0.5s;
-animation-iteration-count: 1;
-animation-fill-mode: forwards;
-}
-/*#circle:hover
-{
-animation: moveleft;
-animation-duration: 2s;
-animation-delay: 0.5s;
-animation-fill-mode: forwards;
-}
-*/
-@keyframes moveleft {
-0%{margin-left:40%;}
-50%{margin-left:20%;}
-100%{margin-left:10%;}
-}
-
-#aboutbox {
-width: 200px;
-height: 150px;
-margin-left: 43%;
-margin-top:70px;
-z-index: -1;
-}
-
-@keyframes moveright {
-0%{margin-left:40%;}
-50%{margin-left:60%;}
-100%{margin-left:80%;}
-
-}
-</style>
 <div class="main">
     <h3>ASMP</h3>
 </div>
@@ -138,15 +18,77 @@ z-index: -1;
         The question goes here
     </div>
     <div class="p-2 ml-auto align-self-center">
-        <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            <img src="static/download.png" style="width: 30%;" >
+        <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+            aria-controls="collapseExample">
+            <img src="static/download.png" style="width: 30%;">
         </a>
-    </div>                  
+    </div>
 </div>
 <div class="collapse" id="collapseExample">
     <div class="card card-body">
-        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user
+        activates the relevant trigger.
     </div>
 </div>
+
+<iframe width="50%" height="50%" src="https://www.youtube.com/embed/JwVR28XbZx8" autoplay="autoplay" muted="">
+</iframe>
+
+
+<h1>Testimonial Section</h1>
+<div class="testimonials">
+    <div id="testimonial">
+        <div id="testimonial-image">
+            <div id="the-image"><img
+                    src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.shutterstock.com%2Fimage-vector%2Fvector-testimonial-template-star-rating-260nw-1609269985.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Ftestimonial&tbnid=zjia9pNxwb0HAM&vet=12ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ..i&docid=qGta9aZ5_yuqzM&w=433&h=280&q=testimonial&ved=2ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ"
+                    width="50%" height="100%"></div>
+        </div>
+        <div id="testimonial-paragraph">
+            <p id="the-paragraph"> This is the paragraph which will be typical of a right para left image testimonial on
+                the testimonials
+                section of the website</p>
+        </div>
+    </div>
+    <hr>
+    <div id="testimonial">
+        <div id="testimonial-paragraph">
+            <p id="the-paragraph"> This is the paragraph which will be typical of a left para right image testimonial on
+                the testimonials
+                section of the website</p>
+        </div>
+        <div id="testimonial-image">
+            <div id="the-image"><img
+                    src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.shutterstock.com%2Fimage-vector%2Fvector-testimonial-template-star-rating-260nw-1609269985.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Ftestimonial&tbnid=zjia9pNxwb0HAM&vet=12ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ..i&docid=qGta9aZ5_yuqzM&w=433&h=280&q=testimonial&ved=2ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ"
+                    width="50%" height="100%"></div>
+        </div>
+    </div>
+    <hr>
+    <div id="testimonial">
+        <div id="testimonial-image">
+            <div id="the-image"><img
+                    src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.shutterstock.com%2Fimage-vector%2Fvector-testimonial-template-star-rating-260nw-1609269985.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Ftestimonial&tbnid=zjia9pNxwb0HAM&vet=12ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ..i&docid=qGta9aZ5_yuqzM&w=433&h=280&q=testimonial&ved=2ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ"
+                    width="50%" height="100%"></div>
+        </div>
+        <div id="testimonial-paragraph">
+            <p id="the-paragraph"> This is the paragraph which will be typical of a right para left image testimonial on
+                the testimonials
+                section of the website</p>
+        </div>
+    </div>
+    <hr>
+    <div id="testimonial">
+        <div id="testimonial-paragraph">
+            <p id="the-paragraph"> This is the paragraph which will be typical of a left para right image testimonial on
+                the testimonials
+                section of the website</p>
+        </div>
+        <div id="testimonial-image">
+            <div id="the-image"><img
+                    src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.shutterstock.com%2Fimage-vector%2Fvector-testimonial-template-star-rating-260nw-1609269985.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Ftestimonial&tbnid=zjia9pNxwb0HAM&vet=12ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ..i&docid=qGta9aZ5_yuqzM&w=433&h=280&q=testimonial&ved=2ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ"
+                    width="50%" height="100%"></div>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}
