@@ -98,3 +98,74 @@ body{
 .social li{
     margin: 5px 10px;
 }
+
+/*carousel*/
+
+h3 {
+	margin:5px 0; 
+  }
+  
+  .sliderContainer {
+	position: relative;
+  }
+  
+  .slider {
+	  width: 60%;
+	margin: 30px 50px 50px;
+  }
+  
+  .slick-slide {
+	background: #3a8999;
+	color: white;
+	padding: 80px 0 120px;
+	font-size: 30px;
+	font-family: "Arial", "Helvetica";
+	text-align: center;
+	height: 80%;
+	width: 60%;
+  }
+  
+  .slick-prev:before,
+  .slick-next:before {
+	color: black;
+  }
+  
+  .slick-dots {
+	bottom: -30px;
+  }
+  
+  .slick-slide:nth-child(odd) {
+	background: #e84a69;
+  }
+  
+  .progressBarContainer {
+	position: relative;
+  }
+  .progressBarContainer ul{
+	  list-style-type: none;
+	  display: flex;
+  }
+  .progressBarContainer div {
+	display: block;
+	width: 200px;
+	height: 60px;
+	padding: 0;
+	cursor: pointer;
+	margin-right: 5%;
+	color: black;
+  }
+
+  
+  .progressBarContainer div span.progressBar {
+	height: 100%;
+	width: 4px !important;
+	background-color: rgba(255, 255, 255, 0.4);
+	display: block;
+  }
+  
+  .progressBarContainer div span.progressBar .inProgress {
+	background-color: greenyellow;
+	height: 0%;
+	width: 4px !important;
+  }
+  
