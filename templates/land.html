@@ -12,7 +12,14 @@
         About Us text comes here in this box and will be shadowed unless hovered upon
     </div>
 </div>
-
+<script>
+    var abreveal = document.querySelector("#circle");
+    var textreveal = document.querySelector("#aboutbox")
+    abreveal.addEventListener('click', function(){
+        abreveal.classList.toggle('moved');
+        textreveal.classList.toggle('moved');
+    });
+</script>
 
 <div class="d-flex mb-3">
     <div class="p-2">
