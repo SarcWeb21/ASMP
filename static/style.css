@@ -315,3 +315,79 @@ animation-fill-mode: forwards;
 		height: 100%;
 	}
 	/* End of section */
+
+	/* Profile Page */
+	.profnav ul {
+		list-style-type: none;
+		margin: 0;
+		background-color: #e8e8e8;
+		  height: 100vh;
+		clear: both; /* clear space around (left and right side), this pushes other elements downward */   
+	  }
+	  
+	  div.content {
+		  margin: 0;
+		padding: 0;
+		clear: both;
+	  }
+	  
+	  div.content div {
+		padding: 0 10px;
+	  }
+	  
+	  h1 {
+		  font-family: Verdana, Geneva, sans-serif;
+		margin-top: 0;
+	  }
+	  
+	  .profnav ul li {
+		margin: 0.5em 0;
+		padding: 0.8em;
+		color: black;
+		text-align: left;
+	  }
+	  
+	  .profnav li.current {
+		  background-color: #c5c4c4;
+		  border-left: solid #0e4d7d 4px;
+	  }
+	  
+	  
+	  .profnav li a { text-decoration: none; }
+	  .profnav li a:link {color:black;}      /* unvisited link */
+	  .profnav li a:visited {color:black;}  /* visited link */
+	  .profnav li a:hover {transform: scale(1.2);}  /* mouse over link */
+	  .profnav li a:active {opacity: 0.8;}  /* selected link */
+	  
+	  #page3 {
+		background-color: #e0ebeb;
+	  }
+	  
+	  footer {
+		  clear: both;
+		font-style: italic;
+		color: grey;
+		margin: 0.5em;
+	  }
+	  
+	  /* rules for larger screens (mobile first!): */
+	  @media only screen and (min-width: 801px) {
+		  /* rules that only apply for screens larger than 800px */
+		  .profnav ul {
+			width: 8em;
+			float: left;
+			  margin-top: 1em;
+		  }
+		
+		  div.content {
+			float: left;
+			  margin: 1.8em 0 0 9em;
+			max-width: 70%;
+			clear: none;
+		  }
+		
+		  div.content div {
+			padding: 0 20px;
+		  }
+		
+	  }
