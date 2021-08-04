@@ -1,6 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 <div style="height: 10vh"></div>
+<div class="progressm">
+    <div class="progressbar-wrap">
+        <div class="progressbar"></div>
+    </div>
+    <div class="progressper">
+    </div>
+</div>
+<script>
+    let progressSec = document.querySelector('.progressm');
+    let progressBar = document.querySelector('.progressbar');
+    let progressPer = document.querySelector('.progressper');
+    let progressBarWrap = document.querySelector('.progressbar-wrap');
+    let x,y;
+    function updateProg(){
+        progressBar.style.height = `${getScrollPer()}%`;
+        progressBarWrap.style.height = `${getScrollPer()}%`;
+        progressPer.innerHTML = `${Math.ceil(getScrollPer())}`
+        requestAnimationFrame(updateProg)
+    }
+    function getScrollPer(){
+        return((window.scrollY) / (document.body.scrollHeight - window.innerHeight) * 100)
+    }
+    updateProg()
+</script>
 <div class="main">
     <h3>ASMP</h3>
 </div>

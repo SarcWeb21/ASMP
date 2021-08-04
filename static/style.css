@@ -463,4 +463,31 @@ animation-fill-mode: forwards;
 		z-index: 4;
 		filter: blur(0px);
 	}
-	
+	/* scrollbar */
+.progressm{
+	position: fixed;
+	right: 10px;
+	top: 10%;
+	width: 100px;
+	height: 80%;
+	will-change: transform;
+	justify-content: space-between;
+	transition: 0.3s ease-out;
+}	
+.progressbar-wrap{
+	position: relative;
+	width: 10px;
+	height: 0%;
+	overflow: hidden;
+}
+
+.progressbar{
+	position: absolute;
+	top: 0%;
+	width: 100%;
+	height: 0%;
+	background-color: #0e4d7d;
+}
+
+
+

@@ -111,4 +111,7 @@ $(document).ready(function(){
 	
 }); // end $(document).ready method
 
-/* mentor cards */
+/* scroll-gimmick */
+
+
+	
