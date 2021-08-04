@@ -79,7 +79,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 	// When page loads...:
-	$("div.content div").hide(); // Hide all content
+	$("div.content .profind").hide(); // Hide all content
   
 	/* Check for hashtag in url */
 	if (window.location.hash.length>0) {
@@ -101,7 +101,7 @@ $(document).ready(function(){
 		$(".profnav li").removeClass("current"); // Remove any active class
 		$(this).addClass("current"); // Add "current" class to selected page
 		
-		$("div.content div").hide(); // Hide all content
+		$("div.content .profind").hide(); // Hide all content
 
     // Find the href attribute value to identify the active page:
 		var activePage = $(this).find("a").attr("href"); 
@@ -110,4 +110,4 @@ $(document).ready(function(){
 	
 }); // end $(document).ready method
 
-
+/* mentor cards */

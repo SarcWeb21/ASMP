@@ -10,15 +10,27 @@
 </div>
     <div class="content">
     
-      <div id="page1"><!-- personal info -->
+      <div id="page1" class="profind"><!-- personal info -->
         <p>Personal Info Form</p>
       </div><!-- /page1 -->
       
-      <div id="page2"><!-- Mentor Display -->
+      <div id="page2" class="profind"><!-- Mentor Display -->
         <p>Mentor Cards</p>
+        <div class="scene scene--card">
+          <div class="card">
+            <div class="card__face card__face--front">Mentor Id</div>
+            <div class="card__face card__face--back">Mentor Info</div>
+          </div>
+        </div>
+      <script>
+        var card = document.querySelector('.card');
+card.addEventListener( 'click', function() {
+  card.classList.toggle('is-flipped');
+});
+      </script>
       </div><!-- /page2 -->
       
-      <div id="page3"><!-- page 3 -->
+      <div id="page3" class="profind"><!-- page 3 -->
         <p>Your selected mentors</p>
       </div><!-- /page3 -->
     
