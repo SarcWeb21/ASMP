@@ -129,7 +129,7 @@ CRISPY_TEMPLATE_PACK='bootstrap4'
 LOGIN_REDIRECT_URL='blog-home'
 #redirect to login
 LOGIN_URL='login'
-# Using
+# Using Simple Mail Transfer Protocol
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
