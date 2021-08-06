@@ -31,7 +31,7 @@ def login(request):
             context = {'email': email}
             return redirect('profile')
 
-        return redirect('login')
+        return redirect('profile')
     return render(request, 'login_ritwik.html')
 
 def register(request):

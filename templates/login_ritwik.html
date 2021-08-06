@@ -10,13 +10,14 @@
 
     <div class="form">
         <h3 class="title">Login</h3>
-        {% if message %}
-            <div class="alert alert-{{class}}">
-                {{message}}
-            </div>
-        {% endif %}
+        
         <form method="post">
             {% csrf_token %}
+            {% if message %}
+                <div class="alert alert-{{class}}">
+                    {{message}}
+                </div>
+            {% endif %}
             <div class="field">
                 <input type="text" placeholder="ritwikgupta@iitb.ac.in" name="email" id="">
                 <label>Email ID</label>

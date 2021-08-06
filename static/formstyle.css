@@ -137,3 +137,7 @@ form .pass-link a:hover,
 form .signup-link a:hover{
   text-decoration: underline;
 }
+
+.alert-message{
+  padding: 0px 30px;
+}
