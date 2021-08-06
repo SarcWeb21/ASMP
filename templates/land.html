@@ -39,10 +39,10 @@
 <script>
     var abreveal = document.querySelector("#circle");
     var textreveal = document.querySelector("#aboutbox")
-    abreveal.addEventListener('click', function(){
+    abreveal.addEventListener('mouseenter', function(){
         abreveal.classList.toggle('moved');
         textreveal.classList.toggle('moved');
-    });
+    },{once:true});
 </script>
 
 <div class="d-flex mb-3">
