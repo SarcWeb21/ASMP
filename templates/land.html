@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<div style="height: 10vh"></div>
 <div class="progressm">
     <div class="progressbar-wrap">
         <div class="progressbar"></div>
@@ -45,19 +44,17 @@
     });
 </script>
 
-<div class="d-flex mb-3">
-    <div class="p-2">
-        The question goes here
-    </div>
-    <div class="p-2 ml-auto align-self-center">
+<div class="d-flex mb-3">   
+    <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important;">
         <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
             aria-controls="collapseExample">
+            The question goes here
             <img src="static/download.png" style="width: 30%;">
         </a>
     </div>
 </div>
 <div class="collapse" id="collapseExample">
-    <div class="card card-body">
+    <div class="m">
         Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user
         activates the relevant trigger.
     </div>
