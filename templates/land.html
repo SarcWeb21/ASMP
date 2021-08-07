@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+{% for mentor in mentors %}
+
+<div class="main">
+    <p>{{mentor.hostel}}</p>
+    <p>{{mentor.discp}}</p>
+    <p>{{mentor.company}}</p>
+    <p>{{mentor.designation}}</p>
+    <p>{{mentor.year}}</p>
+    <p>{{mentor.degree}}</p>
+    <p>{{mentor.city}}</p>
+    <p>{{mentor.department}}</p>
+    <a href="{% url 'favourite_add' mentor.id %}">Wishlist</a>
+</div>
+{% endfor %}
+<a href="{% url 'favourite_list' %}">Saved Posts</a>
+{% endblock %}
