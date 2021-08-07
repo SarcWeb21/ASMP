@@ -112,6 +112,4 @@ $(document).ready(function(){
 }); // end $(document).ready method
 
 /* scroll-gimmick */
-
-
 	

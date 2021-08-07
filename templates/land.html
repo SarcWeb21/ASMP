@@ -38,10 +38,10 @@
 <script>
     var abreveal = document.querySelector("#circle");
     var textreveal = document.querySelector("#aboutbox")
-    abreveal.addEventListener('click', function(){
+    abreveal.addEventListener('mouseenter', function(){
         abreveal.classList.toggle('moved');
         textreveal.classList.toggle('moved');
-    });
+    },{once:true});
 </script>
 
 <div class="d-flex mb-3">   
@@ -49,7 +49,7 @@
         <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
             aria-controls="collapseExample">
             The question goes here
-            <img src="static/download.png" style="width: 30%;">
+            <img src="static/download.png" style="width: 3%;">
         </a>
     </div>
 </div>
@@ -66,60 +66,59 @@
 </iframe>
 
 
-<h1>Testimonial Section</h1>
-<div class="testimonials">
-    <div id="testimonial">
-        <div id="testimonial-image">
-            <div id="the-image"><img
-                    src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.shutterstock.com%2Fimage-vector%2Fvector-testimonial-template-star-rating-260nw-1609269985.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Ftestimonial&tbnid=zjia9pNxwb0HAM&vet=12ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ..i&docid=qGta9aZ5_yuqzM&w=433&h=280&q=testimonial&ved=2ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ"
-                    width="50%" height="100%"></div>
-        </div>
-        <div id="testimonial-paragraph">
-            <p id="the-paragraph"> This is the paragraph which will be typical of a right para left image testimonial on
-                the testimonials
-                section of the website</p>
-        </div>
-    </div>
-    <hr>
-    <div id="testimonial">
-        <div id="testimonial-paragraph">
-            <p id="the-paragraph"> This is the paragraph which will be typical of a left para right image testimonial on
-                the testimonials
-                section of the website</p>
-        </div>
-        <div id="testimonial-image">
-            <div id="the-image"><img
-                    src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.shutterstock.com%2Fimage-vector%2Fvector-testimonial-template-star-rating-260nw-1609269985.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Ftestimonial&tbnid=zjia9pNxwb0HAM&vet=12ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ..i&docid=qGta9aZ5_yuqzM&w=433&h=280&q=testimonial&ved=2ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ"
-                    width="50%" height="100%"></div>
-        </div>
-    </div>
-    <hr>
-    <div id="testimonial">
-        <div id="testimonial-image">
-            <div id="the-image"><img
-                    src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.shutterstock.com%2Fimage-vector%2Fvector-testimonial-template-star-rating-260nw-1609269985.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Ftestimonial&tbnid=zjia9pNxwb0HAM&vet=12ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ..i&docid=qGta9aZ5_yuqzM&w=433&h=280&q=testimonial&ved=2ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ"
-                    width="50%" height="100%"></div>
-        </div>
-        <div id="testimonial-paragraph">
-            <p id="the-paragraph"> This is the paragraph which will be typical of a right para left image testimonial on
-                the testimonials
-                section of the website</p>
-        </div>
-    </div>
-    <hr>
-    <div id="testimonial">
-        <div id="testimonial-paragraph">
-            <p id="the-paragraph"> This is the paragraph which will be typical of a left para right image testimonial on
-                the testimonials
-                section of the website</p>
-        </div>
-        <div id="testimonial-image">
-            <div id="the-image"><img
-                    src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.shutterstock.com%2Fimage-vector%2Fvector-testimonial-template-star-rating-260nw-1609269985.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Ftestimonial&tbnid=zjia9pNxwb0HAM&vet=12ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ..i&docid=qGta9aZ5_yuqzM&w=433&h=280&q=testimonial&ved=2ahUKEwj09fbNwZXyAhUjsksFHT-aAvIQMygGegUIARDUAQ"
-                    width="50%" height="100%"></div>
-        </div>
-    </div>
+<div id="testimonial-heading">  
+    <div id="testimonial-heading-text">
+<h1>Testimonials</h1>
 </div>
+</div>  
+    <div id="testimonials">
+        <div id="testimonial-box">
+            <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg" id="testimonial-image" height="30%" width="25%">
+            <h4 id="testimonial-name"> Mayank </h4>
+            <small id="testimonial-subtitle">Aero</small>
+            <p id="testimonial-text"><blockquote>
+                <br><br>The testimonial comes in this box which is rounded and will be arranged alternate
+            left and right
+        <br><br></blockquote></p>
+        </div>
+        <div id="testimonial-box">
+            <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg" id="testimonial-image" height="30%" width="25%">
+            <h4 id="testimonial-name"> Mayank </h4>
+            <small id="testimonial-subtitle">Aero</small>
+            <p id="testimonial-text">
+            <blockquote>
+                <br><br>The testimonial comes in this box which is rounded and will be arranged alternate
+            left and right
+        <br><br></blockquote></p>
+        </div>
+        <div id="testimonial-box">
+            <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg" id="testimonial-image" height="30%" width="25%">
+            <h4 id="testimonial-name"> Mayank </h4>
+            <small id="testimonial-subtitle">Aero</small>
+            <p id="testimonial-text"><blockquote>
+                <br><br>The testimonial comes in this box which is rounded and will be arranged alternate
+            left and right
+        <br><br></blockquote></p>
+        </div>
+        <div id="testimonial-box">
+            <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg" id="testimonial-image" height="30%" width="25%">
+            <h4 id="testimonial-name"> Mayank </h4>
+            <small id="testimonial-subtitle">Aero</small>
+            <p id="testimonial-text"><blockquote>
+                <br><br>The testimonial comes in this box which is rounded and will be arranged alternate
+            left and right
+        <br><br></blockquote></p>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
 
+    <script>
+    gsap.to("#testimonials", {
+        scrollTrigger: "#testimonials",
+        opacity: 1,
+        marker: true
+    });
+    </script>
 
 {% endblock %}
