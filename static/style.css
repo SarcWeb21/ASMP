@@ -496,7 +496,7 @@ animation-fill-mode: forwards;
     width: 100%;
     justify-content: space-around;
 }
-#named
+.named
 {
     height: 48%;
     width: 15%;
