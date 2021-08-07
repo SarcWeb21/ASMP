@@ -3,10 +3,11 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 #from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-from django.core.mail import send_mail
 import math, random
 from django.contrib.auth.models import User
 from .models import Profile
+from django.conf import settings
+from django.core.mail import send_mail
 
 def index(request):
     return render(request, "land.html")
@@ -57,6 +58,10 @@ def register(request):
         request.session['email'] = email
         request.session['name'] = name
         request.session['password'] = password
+        otp = generateOTP()
+        send_otp(email, otp)
+        return redirect('otp')
+
         #if not email_success and not mobile_success:
             #context = {'message': 'OTP failed to generate', 'class': 'danger'}
             #return render(request, 'regiser.html', context)
@@ -64,22 +69,48 @@ def register(request):
     return render(request, 'register.html')
 
 
-# def generateOTP():
-#     digits = "0123456789"
-#     OTP = ""
-#     for i in range(4) :
-#         OTP += digits[math.floor(random.random() * 10)]
-#     return OTP
+def generateOTP():
+    digits = "0123456789"
+    OTP = ""
+    for i in range(4) :
+        OTP += digits[math.floor(random.random() * 10)]
+    return OTP
 
 
 
-# def send_otp(request):
-#      email=request.GET.get("email")
-#      print(email)
-#      o=generateOTP()
-#      htmlgen = '<p>Your OTP is <strong>o</strong></p>'
-#      send_mail('OTP request',o,'<your gmail id>',[email], fail_silently=False, html_message=htmlgen)
-#      return HttpResponse(o)
+def send_otp(email, otp_generated):
+    subject = "OTP request"
+    message = 'Hi, your otp is '+ str(otp_generated) 
+    email_from = settings.EMAIL_HOST_USER
+    recipient = [email,]
+    send_mail(subject, message, email_from, recipient, fail_silently = True)
+    return None
+
+def otp(request):
+    # mobile = request.session['mobile']
+    # email = request.session['email']
+    # otp_to_check = request.session['otp']
+    # name = request.session['name']
+    # password = request.session['password']
+    # context = {'mobile': mobile, 'email': email}
+    # print(otp_to_check)
+    # if request.method == 'POST':
+    #     otp = request.POST.get('otp')
+    #     if otp == otp_to_check:
+    #         user = User(email=email, username=name)
+    #         profile = Profile(user=user, mobile=mobile, password=password)
+    #         user.save()
+    #         profile.save()
+    #         return redirect('login')
+    #     else:
+    #         print('Wrong')
+
+    #         context = {'message': 'Wrong OTP', 'class': 'danger', 'mobile': mobile, 'email': email}
+    #         return render(request, 'otp.html', context)
+    return render(request, 'otp.html'   )
+
+
+
 
 
 # @login_required
