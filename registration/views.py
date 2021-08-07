@@ -23,11 +23,10 @@ def login(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         user = User.objects.filter(email=email).first()
-        requested_profile = Profile.objects.filter(user=user).first()
         if user is None:
             context = {'message': 'User not found', 'class': 'danger'}
             return render(request, 'login_ritwik.html', context)
-
+        requested_profile = Profile.objects.filter(user=user).first()      
         if password == requested_profile.password:
             context = {'email': email}
             return redirect('profile')
