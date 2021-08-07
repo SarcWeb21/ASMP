@@ -55,10 +55,11 @@ def register(request):
         #profile = Profile(user=user, mobile=mobile, otp=otp)
         #profile.save()
         #email_success, mobile_success = send_otp(email, mobile, otp)
+        otp = generateOTP()
         request.session['email'] = email
         request.session['name'] = name
         request.session['password'] = password
-        otp = generateOTP()
+        request.session['otp'] = otp
         send_otp(email, otp)
         return redirect('otp')
 
@@ -87,27 +88,26 @@ def send_otp(email, otp_generated):
     return None
 
 def otp(request):
-    # mobile = request.session['mobile']
-    # email = request.session['email']
-    # otp_to_check = request.session['otp']
-    # name = request.session['name']
-    # password = request.session['password']
-    # context = {'mobile': mobile, 'email': email}
+    #mobile = request.session['mobile']
+    email = request.session['email']
+    otp_to_check = request.session['otp']
+    name = request.session['name']
+    password = request.session['password']
+    context = {'email': email}
     # print(otp_to_check)
-    # if request.method == 'POST':
-    #     otp = request.POST.get('otp')
-    #     if otp == otp_to_check:
-    #         user = User(email=email, username=name)
-    #         profile = Profile(user=user, mobile=mobile, password=password)
-    #         user.save()
-    #         profile.save()
-    #         return redirect('login')
-    #     else:
-    #         print('Wrong')
-
-    #         context = {'message': 'Wrong OTP', 'class': 'danger', 'mobile': mobile, 'email': email}
-    #         return render(request, 'otp.html', context)
-    return render(request, 'otp.html'   )
+    if request.method == 'POST':
+        otp = request.POST.get('otp')
+        if otp == otp_to_check:
+            user = User(email=email,username=name)
+            profile = Profile(user=user, password=password)
+            user.save()
+            profile.save()
+            return redirect('login')
+        else:
+            print('Wrong')
+            context = {'message': 'Wrong OTP', 'class': 'danger', 'email': email}
+            return render(request, 'otp.html', context)
+    return render(request, 'otp.html')
 
 
 
