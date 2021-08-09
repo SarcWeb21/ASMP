@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="update" method="post">
+    {% csrf_token %}
+    {% for mentor in new %}
+
+    <div class="main">
+        <p>{{mentor.hostel}}</p>
+        <p>{{mentor.discp}}</p>
+        <p>{{mentor.company}}</p>
+        <p>{{mentor.designation}}</p>
+        <p>{{mentor.year}}</p>
+        <p>{{mentor.degree}}</p>
+        <p>{{mentor.city}}</p>
+        <p>{{mentor.department}}</p>
+        <a href="{% url 'favourite_add' mentor.id %}">Remove</a>
+        <select name="{{mentor.id}} preference" size="1">
+            <option selected disabled=true>--</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <input hidden name="{{mentor.id}}" value="{{mentor.id}}">
+
+
+
+    </div>
+    {% endfor %}
+    <input type="submit">
+</form>
+{% endblock %}
