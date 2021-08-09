@@ -1,27 +1,33 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.http import HttpResponse
-from django.contrib import messages
+
 from django.contrib.auth.decorators import login_required
 #from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-import math, random
+import math
+import random
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Mentor, Preference, Profile, Information
+from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
-from .models import Mentor, Preference, Profiletemp, Information
+from .models import Mentor, Preference, Information
+
 
 def index(request):
     return render(request, "land.html")
 
-# def login(request):
-#     return render(request, "login.html")
+
+def login(request):
+    return render(request, "login.html")
+
 
 def profile(request):
     context = {
         'mentors': Mentor.objects.all()
     }
     return render(request, "profile.html",context)
+
 
 def login(request):
     if request.method == 'POST':
@@ -31,13 +37,14 @@ def login(request):
         if user is None:
             context = {'message': 'User not found', 'class': 'danger'}
             return render(request, 'login_ritwik.html', context)
-        requested_profile = Profile.objects.filter(user=user).first()      
+        requested_profile = Profile.objects.filter(user=user).first()
         if password == requested_profile.password:
             context = {'email': email}
             return redirect('profile')
 
         return redirect('profile')
     return render(request, 'login_ritwik.html')
+
 
 def register(request):
     if request.method == 'POST':
@@ -54,10 +61,10 @@ def register(request):
             return render(request, 'register.html', context)
 
         #user = User(email=email, username=name)
-        #user.save()
+        # user.save()
         #otp = str(random.randint(1000, 9999))
         #profile = Profile(user=user, mobile=mobile, otp=otp)
-        #profile.save()
+        # profile.save()
         #email_success, mobile_success = send_otp(email, mobile, otp)
         otp = generateOTP()
         request.session['email'] = email
@@ -67,29 +74,29 @@ def register(request):
         send_otp(email, otp)
         return redirect('otp')
 
-        #if not email_success and not mobile_success:
-            #context = {'message': 'OTP failed to generate', 'class': 'danger'}
-            #return render(request, 'regiser.html', context)
-        #return redirect('otp')
+        # if not email_success and not mobile_success:
+        #context = {'message': 'OTP failed to generate', 'class': 'danger'}
+        # return render(request, 'regiser.html', context)
+        # return redirect('otp')
     return render(request, 'register.html')
 
 
 def generateOTP():
     digits = "0123456789"
     OTP = ""
-    for i in range(4) :
+    for i in range(4):
         OTP += digits[math.floor(random.random() * 10)]
     return OTP
 
 
-
 def send_otp(email, otp_generated):
     subject = "OTP request"
-    message = 'Hi, your otp is '+ str(otp_generated) 
+    message = 'Hi, your otp is ' + str(otp_generated)
     email_from = settings.EMAIL_HOST_USER
-    recipient = [email,]
-    send_mail(subject, message, email_from, recipient, fail_silently = True)
+    recipient = [email, ]
+    send_mail(subject, message, email_from, recipient, fail_silently=True)
     return None
+
 
 def otp(request):
     #mobile = request.session['mobile']
@@ -102,14 +109,15 @@ def otp(request):
     if request.method == 'POST':
         otp = request.POST.get('otp')
         if otp == otp_to_check:
-            user = User(email=email,username=name)
+            user = User(email=email, username=name)
             profile = Profile(user=user, password=password)
             user.save()
             profile.save()
             return redirect('login')
         else:
             print('Wrong')
-            context = {'message': 'Wrong OTP', 'class': 'danger', 'email': email}
+            context = {'message': 'Wrong OTP',
+                       'class': 'danger', 'email': email}
             return render(request, 'otp.html', context)
     return render(request, 'otp.html')
 
@@ -217,3 +225,83 @@ def update(request):
 #     }
 
 #     return render(request, 'register/profile.html', context)
+def mentorlist(request):
+    context = {
+        'mentors': Mentor.objects.all()
+    }
+    return render(request, "mentorlist.html", context)
+
+
+def favourite_add(request, id):
+    mentor = get_object_or_404(Mentor, id=id)
+    if mentor.favourites.filter(id=request.user.id).exists():
+        mentor.favourites.remove(request.user)
+
+    else:
+        mentor.favourites.add(request.user)
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+    # def favourite_add(request, id):
+    #     mentor = get_object_or_404(Mentor, id=id)
+    #     if mentor.favourites.filter(id=request.user.id).exists():
+    #         mentor.favourites.remove(request.user)
+    #         Preference.objects.filter(mentor_id=id, user=request.user).delete()
+    #     else:
+    #         mentor.favourites.add(request.user)
+    #     return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+
+def maxscore(max_mentees):
+    if max_mentees == 1:
+        return 5.0
+    elif max_mentees == 2:
+        return 9.0
+    elif max_mentees == 3:
+        return 12.0
+    elif max_mentees == 4:
+        return 15.0
+
+
+def favourite_list(request):
+    new = Mentor.objects.all().filter(favourites=request.user)
+    ids = new.values_list('pk', flat=True)
+    for i in ids:
+        mentor_update = Mentor.objects.get(id=i)
+        mentor_update.maxscore = maxscore(mentor_update.maxmentees)
+        if mentor_update.score > mentor_update.maxscore:
+            mentor_update.available = False
+        mentor_update.save()
+
+    return render(request, 'wishlist.html', {'new': new})
+
+
+def returnScore(pref):
+
+    if pref == 1:
+        return 2
+    elif pref == 2:
+        return 1.5
+    elif pref == 3:
+        return 1
+    elif pref == 4:
+        return 0.5
+    elif pref == 5:
+        return 0.25
+
+
+def update(request):
+    new = Mentor.objects.all().filter(favourites=request.user)
+    ids = new.values_list('pk', flat=True)
+    for i in ids:
+        preference = request.POST[str(i) + " preference"]
+        mentor = request.POST[str(i)]
+        user = request.user
+        preference_user = Preference(preference_no=int(
+            preference), mentor_id=int(mentor), user=user)
+        preference_user.save()
+        mentor_update = Mentor.objects.get(id=int(mentor))
+        mentor_update.score = mentor_update.score + \
+            returnScore(int(preference))
+        mentor_update.save()
+
+    return render(request, 'finish.html')

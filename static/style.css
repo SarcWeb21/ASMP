@@ -335,6 +335,13 @@ animation-fill-mode: forwards;
 	/* End of section */
 
 	/* Profile Page */
+	.cardare{
+		display: grid;
+		grid-template-columns: 25% 25% 25% 25%;
+	}
+	.profnav{
+		position: fixed;
+	}
 	.profnav ul {
 		list-style-type: none;
 		margin: 0;
@@ -517,7 +524,7 @@ animation-fill-mode: forwards;
     width: 100%;
     justify-content: space-around;
 }
-#named
+.named
 {
     height: 48%;
     width: 15%;
