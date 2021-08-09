@@ -488,6 +488,36 @@ animation-fill-mode: forwards;
 	height: 0%;
 	background-color: #0e4d7d;
 }
+/*Added by Mayank for Team*/
+#team
+{
+    display: flex;
+    height: 48%;
+    width: 100%;
+    justify-content: space-around;
+}
+.named
+{
+    height: 48%;
+    width: 15%;
+    border:1px solid black;
+
+}
+#center-image
+{
+
+    width:100%;
+
+}
+#center-image #named
+{
+    margin-left: 42.5%;
+}
+#team #named
+{
+    height: 100%;
+}
+/*End of team style*/
 
 
 
