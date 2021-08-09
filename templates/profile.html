@@ -17,11 +17,25 @@
       <div id="page2" class="profind"><!-- Mentor Display -->
         <p>Mentor Cards</p>
         <div class="scene scene--card">
+          {% for mentor in mentors %}
           <div class="card">
-            <div class="card__face card__face--front">Mentor Id</div>
-            <div class="card__face card__face--back">Mentor Info</div>
-          </div>
+            <div class="card__face card__face--front">
+    <p>{{mentor.hostel}}</p>
+    <p>{{mentor.discp}}</p>
+    <p>{{mentor.company}}</p>
+    <a href="{% url 'favourite_add' mentor.id %}">Wishlist</a>
+
+            </div>
+            <div class="card__face card__face--back">
+              <p>{{mentor.designation}}</p>
+              <p>{{mentor.year}}</p>
+              <p>{{mentor.degree}}</p>
+              <p>{{mentor.city}}</p>
+              <p>{{mentor.department}}</p>
+              <a href="{% url 'favourite_add' mentor.id %}">Wishlist</a>
+            </div>
         </div>
+        {% endfor %}
       <script>
         var card = document.querySelector('.card');
 card.addEventListener( 'click', function() {
@@ -29,16 +43,39 @@ card.addEventListener( 'click', function() {
 });
       </script>
       </div><!-- /page2 -->
-      
-      <div id="page3" class="profind"><!-- page 3 -->
+      </div>
+      <div id="page3" class="profind">
+        <script>
+          alert('{{ message }}');
+      </script><!-- page 3 -->
         <p>Your selected mentors</p>
         <div class="wishmentors">
+          <form action="update" method="post">
+            {% csrf_token %}
           <ul>
-            <li><span></span><p>Mentor 1</p></li>
-            <li>Mentor 2</li>
-            <li>Mentor 3</li>
-            <li>Mentor 4</li>
+            {% for mentor in new %}
+            <li>          
+              <p>{{mentor.hostel}}</p>
+              <p>{{mentor.discp}}</p>
+              <p>{{mentor.company}}</p>
+              <p>{{mentor.designation}}</p>
+              <p>{{mentor.year}}</p>
+              <p>{{mentor.degree}}</p>
+              <p>{{mentor.city}}</p>
+              <p>{{mentor.department}}</p>
+              <a href="{% url 'favourite_add' mentor.id %}">Remove</a>
+              <select name="{{mentor.id}} preference" size="1">
+                  <option value="1">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+              </select>
+              <input hidden name="{{mentor.id}}" value="{{mentor.id}}">
+            </li>
+              {% endfor %}
           </ul>
+          <input type="submit">
+          </form>
         </div>
       </div><!-- /page3 -->
     

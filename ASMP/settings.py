@@ -129,12 +129,14 @@ LOGIN_REDIRECT_URL='blog-home'
 #redirect to login
 LOGIN_URL='login'
 # Using Simple Mail Transfer Protocol
+
+
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
 EMAIL_USE_TLS= True
-EMAIL_HOST_USER= os.environ.get('EMAI_USER')
-EMAIL_HOST_PASSWORD= os.environ.get('EMAI_PASS')
+EMAIL_HOST_USER= 'manavdoshiwis@gmail.com'
+EMAIL_HOST_PASSWORD= 'Manav@2612'
 
 
 # Default primary key field type
