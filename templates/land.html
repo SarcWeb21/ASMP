@@ -16,7 +16,7 @@
     function updateProg(){
         progressBar.style.height = `${getScrollPer()}%`;
         progressBarWrap.style.height = `${getScrollPer()}%`;
-        progressPer.innerHTML = `${Math.ceil(getScrollPer())}`
+        progressPer.innerHTML = `${Math.floor(getScrollPer())}`
         requestAnimationFrame(updateProg)
     }
     function getScrollPer(){
@@ -27,7 +27,7 @@
 <div class="main">
     <h3>ASMP</h3>
 </div>
-<div class="wrapperm" style="margin-right: 10%;">
+<div class="wrapperm">
 <div id="sect">
     <div id="circle">
         About Us

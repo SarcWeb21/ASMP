@@ -62,10 +62,10 @@ body{
 	transition: 0.3s ease;
 }
 #menu-bar{
-	z-index: 2;	
+	z-index: 4;	
 }
 .change-bg{
-	width: 650px;
+	width: 700px;
 	height: 650px;
 	transform: translate(50%,-50%);
 }
@@ -101,6 +101,19 @@ body{
 }
 .social li{
     margin: 5px 10px;
+}
+.loginmen{
+	position: absolute;
+	top: 21px;
+	right: 90px;
+}
+.loginmen button{
+	padding: 8px 28px;
+	outline: none;
+	border: none;
+	border-radius: 9999px;
+	background-color: #135b91;
+	color: white;
 }
 /*faq*/
 .d-flex.mb-3{
@@ -336,8 +349,8 @@ animation-fill-mode: forwards;
 
 	/* Profile Page */
 	.cardare{
-		display: grid;
-		grid-template-columns: 25% 25% 25% 25%;
+		display: inline-flex;
+		flex-wrap: wrap;
 	}
 	.profnav{
 		position: fixed;
@@ -345,7 +358,6 @@ animation-fill-mode: forwards;
 	.profnav ul {
 		list-style-type: none;
 		margin: 0;
-		background-color: #e8e8e8;
 		  height: 100vh;
 		clear: both; /* clear space around (left and right side), this pushes other elements downward */   
 	  }
@@ -373,7 +385,7 @@ animation-fill-mode: forwards;
 	  }
 	  
 	  .profnav li.current {
-		  background-color: #c5c4c4;
+		  background-color: #f7a4b1;
 		  border-left: solid #0e4d7d 4px;
 	  }
 	  
@@ -423,7 +435,7 @@ animation-fill-mode: forwards;
 		perspective: 600px;
 	  }
 	  
-	  .card {
+	  .cardm {
 		width: 100%;
 		height: 100%;
 		transition: transform 1s;
@@ -432,7 +444,7 @@ animation-fill-mode: forwards;
 		position: relative;
 	  }
 	  
-	  .card.is-flipped {
+	  .cardm.is-flipped {
 		transform: rotateY(180deg);
 	  }
 	  
@@ -446,6 +458,8 @@ animation-fill-mode: forwards;
 		font-size: 20px;
 		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
+		border-radius: 1rem;
+		padding: 10px 20px;
 	  }
 	  
 	  .card__face--front {
@@ -493,9 +507,9 @@ animation-fill-mode: forwards;
 	/* scrollbar */
 .progressm{
 	position: fixed;
-	right: 10px;
+	right: 0px;
 	top: 10%;
-	width: 100px;
+	width: 40px;
 	height: 80%;
 	z-index: 3;
 	will-change: transform;

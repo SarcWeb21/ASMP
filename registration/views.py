@@ -17,11 +17,6 @@ from .models import Mentor, Preference, Information
 def index(request):
     return render(request, "land.html")
 
-
-def login(request):
-    return render(request, "login.html")
-
-
 def profile(request):
     context = {
         'mentors': Mentor.objects.all()
@@ -225,21 +220,6 @@ def update(request):
 #     }
 
 #     return render(request, 'register/profile.html', context)
-def mentorlist(request):
-    context = {
-        'mentors': Mentor.objects.all()
-    }
-    return render(request, "mentorlist.html", context)
-
-
-def favourite_add(request, id):
-    mentor = get_object_or_404(Mentor, id=id)
-    if mentor.favourites.filter(id=request.user.id).exists():
-        mentor.favourites.remove(request.user)
-
-    else:
-        mentor.favourites.add(request.user)
-    return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
     # def favourite_add(request, id):
     #     mentor = get_object_or_404(Mentor, id=id)
@@ -251,57 +231,5 @@ def favourite_add(request, id):
     #     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
-def maxscore(max_mentees):
-    if max_mentees == 1:
-        return 5.0
-    elif max_mentees == 2:
-        return 9.0
-    elif max_mentees == 3:
-        return 12.0
-    elif max_mentees == 4:
-        return 15.0
 
 
-def favourite_list(request):
-    new = Mentor.objects.all().filter(favourites=request.user)
-    ids = new.values_list('pk', flat=True)
-    for i in ids:
-        mentor_update = Mentor.objects.get(id=i)
-        mentor_update.maxscore = maxscore(mentor_update.maxmentees)
-        if mentor_update.score > mentor_update.maxscore:
-            mentor_update.available = False
-        mentor_update.save()
-
-    return render(request, 'wishlist.html', {'new': new})
-
-
-def returnScore(pref):
-
-    if pref == 1:
-        return 2
-    elif pref == 2:
-        return 1.5
-    elif pref == 3:
-        return 1
-    elif pref == 4:
-        return 0.5
-    elif pref == 5:
-        return 0.25
-
-
-def update(request):
-    new = Mentor.objects.all().filter(favourites=request.user)
-    ids = new.values_list('pk', flat=True)
-    for i in ids:
-        preference = request.POST[str(i) + " preference"]
-        mentor = request.POST[str(i)]
-        user = request.user
-        preference_user = Preference(preference_no=int(
-            preference), mentor_id=int(mentor), user=user)
-        preference_user.save()
-        mentor_update = Mentor.objects.get(id=int(mentor))
-        mentor_update.score = mentor_update.score + \
-            returnScore(int(preference))
-        mentor_update.save()
-
-    return render(request, 'finish.html')
