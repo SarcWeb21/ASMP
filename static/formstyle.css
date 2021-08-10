@@ -13,8 +13,8 @@ html,body{
   /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
   /*background: #c850c0;
   background-image: url(../img/bgimage.jpg);*/
-  background: linear-gradient(-135deg, rgba(200, 80, 192, 0.6), rgba(65, 88, 208, 0.8)), url(../img/bgimage.jpg) ; /* W3C */
   background-size: cover;
+  background: linear-gradient(pink, rgb(243, 222, 28)) !important
   /*background: linear-gradient(rgba(141, 153, 174, 0.8), rgba(141, 153, 174, 0.5)), url("samuel-beckett-bridge.jpg") no-repeat fixed;
   background-size: contain;*/
   /* background: linear-gradient(-135deg, #c850c0, #4158d0); */
