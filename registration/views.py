@@ -154,10 +154,9 @@ def favourite_list(request):
     for i in ids:
         mentor_update = Mentor.objects.get(id=i)
         mentor_update.maxscore = maxscore(mentor_update.maxmentees)
-        if mentor_update.score > mentor_update.maxscore:
+        if float(mentor_update.score) > mentor_update.maxscore:
             mentor_update.available = False
             mentor_update.save()
-
     return render(request, 'wishlist.html', {'new': new})
 
 
