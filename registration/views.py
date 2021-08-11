@@ -177,24 +177,56 @@ def returnScore(pref):
 def update(request):
     new = Mentor.objects.all().filter(favourites=request.user)
     ids = new.values_list('pk', flat=True)
+    error_msg = None
+    c = 0
     for i in ids:
         preference = request.POST[str(i) + " preference"]
-        mentor = request.POST[str(i)]
-        user = request.user
-        if Preference.objects.all().filter(user=user, mentor_id=int(mentor)).exists():
-            a = Preference.objects.get(user=user, mentor_id=int(mentor))
-            a.preference_no = int(preference)
-            a.save()
-            mentor_update = Mentor.objects.get(id=int(mentor))
-            mentor_update.score = mentor_update.score + \
-                returnScore(a.preference_no)
-            mentor_update.save()
-        else:
-            preference_user = Preference(preference_no=int(
-                preference), mentor_id=int(mentor), user=user)
-            preference_user.save()
+        if (preference != "0"):
+            c = c+1
+            for j in ids:
+                if (j == i):
+                    continue
+                else:
+                    pref_temp = request.POST[str(j) + " preference"]
+                    if (pref_temp == preference):
+                        error_msg = "Unique Preference required"
+                    else:
+                        continue
 
-    return render(request, 'wishlist.html', {'new': new})
+        else:
+            continue
+    if (c>0):
+        for i in ids:
+            preference = request.POST[str(i) + " preference"]
+            p = int(preference)
+            if (p != 0):
+                if p in range(1, c+1):
+                    continue
+                else:
+                    error_msg = "Enter preference in order"
+            else:
+                continue
+    else:
+        error_msg = "Enter atleast one preference"
+
+    if not error_msg:
+        for i in ids:
+            preference = request.POST[str(i) + " preference"]
+            mentor = request.POST[str(i)]
+            user = request.user
+            if (preference != "0"):
+                preference_user = Preference(preference_no=int(
+                    preference), mentor_id=int(mentor), user=user)
+                preference_user.save()
+                mentor_update = Mentor.objects.get(id=int(mentor))
+                mentor_update.score = mentor_update.score + \
+                    returnScore(int(preference))
+                mentor_update.save()
+            else:
+                continue
+        return render(request, 'finish.html')
+    else:
+        return render(request, 'wishlist.html', {'error': error_msg, 'new': new})
 
 # @login_required
 # def profile(request):
