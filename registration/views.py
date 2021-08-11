@@ -36,8 +36,8 @@ def login(request):
         if password == requested_profile.password:
             context = {'email': email}
             return redirect('profile')
-
-        return redirect('profile')
+        context = {'message': 'Incorrect Password', 'class': 'danger'}
+        return render(request, 'login_ritwik.html', context)
     return render(request, 'login_ritwik.html')
 
 
