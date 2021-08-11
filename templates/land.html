@@ -12,15 +12,15 @@
     let progressBar = document.querySelector('.progressbar');
     let progressPer = document.querySelector('.progressper');
     let progressBarWrap = document.querySelector('.progressbar-wrap');
-    let x,y;
-    function updateProg(){
+    let x, y;
+    function updateProg() {
         progressBar.style.height = `${getScrollPer()}%`;
         progressBarWrap.style.height = `${getScrollPer()}%`;
         progressPer.innerHTML = `${Math.floor(getScrollPer())}`
         requestAnimationFrame(updateProg)
     }
-    function getScrollPer(){
-        return((window.scrollY) / (document.body.scrollHeight - window.innerHeight) * 100)
+    function getScrollPer() {
+        return ((window.scrollY) / (document.body.scrollHeight - window.innerHeight) * 100)
     }
     updateProg()
 </script>
@@ -28,98 +28,174 @@
     <h3>ASMP</h3>
 </div>
 <div class="wrapperm">
-<div id="sect">
-    <div id="circle">
-        About Us
+    <div id="sect">
+        <div id="circle">
+            About Us
+        </div>
+        <div id="aboutbox">
+            About Us text comes here in this box and will be shadowed unless hovered upon
+        </div>
     </div>
-    <div id="aboutbox">
-        About Us text comes here in this box and will be shadowed unless hovered upon
+    <script>
+        var abreveal = document.querySelector("#circle");
+        var textreveal = document.querySelector("#aboutbox")
+        abreveal.addEventListener('mouseenter', function () {
+            abreveal.classList.toggle('moved');
+            textreveal.classList.toggle('moved');
+        }, { once: true });
+    </script>
+    <div id="testimonial-heading">
+        <div id="testimonial-heading-text">
+            <h1>FAQs</h1>
+        </div>
     </div>
-</div>
-<script>
-    var abreveal = document.querySelector("#circle");
-    var textreveal = document.querySelector("#aboutbox")
-    abreveal.addEventListener('mouseenter', function(){
-        abreveal.classList.toggle('moved');
-        textreveal.classList.toggle('moved');
-    },{once:true});
-</script>
-<div id="testimonial-heading">  
-    <div id="testimonial-heading-text">
-<h1>FAQs</h1>
-</div>
-</div>
-<div class="d-flex mb-3">   
-    <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important;">
-        <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-            aria-controls="collapseExample" style="color: white; padding: 0px 10px;">
-            The question goes here
-            <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
-        </a>
+    <div class="d-flex mb-3">
+        <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important;">
+            <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                aria-controls="collapseExample" style="color: white; padding: 0px 10px;">
+                The question goes here
+                <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
+            </a>
+        </div>
     </div>
-</div>
-<div class="collapse" id="collapseExample">
-    <div class="m">
-        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user
-        activates the relevant trigger.
+    <div class="collapse" id="collapseExample">
+        <div class="m">
+            Some placeholder content for the collapse component. This panel is hidden by default but revealed when the
+            user
+            activates the relevant trigger.
+        </div>
     </div>
-</div>
-<!--carousel-->
+    <!--carousel-->
 
 
-<iframe width="50%" height="50%" src="https://www.youtube.com/embed/JwVR28XbZx8" autoplay="autoplay" muted="">
-</iframe>
+    <!-- <iframe width="50%" height="50%" src="https://www.youtube.com/embed/JwVR28XbZx8" autoplay="autoplay" muted="">
+    </iframe> -->
+<!-- YT embed -->
+    <div style="padding: 56.25% 0 0 0; position: relative">
+        <div style="height:50%;left:25%;position:absolute;top:0;width:50%"><iframe height="100%" width="100%;"
+                src="https://embed.wave.video/6113e5d146e0fb0001bfe6e6" frameborder="0" allow="autoplay; fullscreen"
+                scrolling="no"></iframe></div>
+    </div>
 
 
-<div id="testimonial-heading">  
-    <div id="testimonial-heading-text">
-<h1>Testimonials</h1>
-</div>
-</div>  
+    <div id="testimonial-heading">
+        <div id="testimonial-heading-text">
+            <h1>Testimonials</h1>
+        </div>
+    </div>
     <div id="testimonials">
         <div id="testimonial-box">
-            <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg" id="testimonial-image" height="30%" width="25%">
-            <h4 id="testimonial-name"> Mayank </h4>
-            <small id="testimonial-subtitle">Aero</small>
-            <p id="testimonial-text"><blockquote>
-                <br><br>The testimonial comes in this box which is rounded and will be arranged alternate
-            left and right
-        <br><br></blockquote></p>
-        </div>
-        <div id="testimonial-box">
-            <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg" id="testimonial-image" height="30%" width="25%">
+            <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg"
+                id="testimonial-image" height="30%" width="25%">
             <h4 id="testimonial-name"> Mayank </h4>
             <small id="testimonial-subtitle">Aero</small>
             <p id="testimonial-text">
             <blockquote>
                 <br><br>The testimonial comes in this box which is rounded and will be arranged alternate
-            left and right
-        <br><br></blockquote></p>
+                left and right
+                <br><br>
+            </blockquote>
+            </p>
         </div>
         <div id="testimonial-box">
-            <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg" id="testimonial-image" height="30%" width="25%">
+            <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg"
+                id="testimonial-image" height="30%" width="25%">
             <h4 id="testimonial-name"> Mayank </h4>
             <small id="testimonial-subtitle">Aero</small>
-            <p id="testimonial-text"><blockquote>
+            <p id="testimonial-text">
+            <blockquote>
                 <br><br>The testimonial comes in this box which is rounded and will be arranged alternate
-            left and right
-        <br><br></blockquote></p>
+                left and right
+                <br><br>
+            </blockquote>
+            </p>
         </div>
         <div id="testimonial-box">
-            <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg" id="testimonial-image" height="30%" width="25%">
+            <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg"
+                id="testimonial-image" height="30%" width="25%">
             <h4 id="testimonial-name"> Mayank </h4>
             <small id="testimonial-subtitle">Aero</small>
-            <p id="testimonial-text"><blockquote>
+            <p id="testimonial-text">
+            <blockquote>
                 <br><br>The testimonial comes in this box which is rounded and will be arranged alternate
-            left and right
-        <br><br></blockquote></p>
+                left and right
+                <br><br>
+            </blockquote>
+            </p>
+        </div>
+        <div id="testimonial-box">
+            <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg"
+                id="testimonial-image" height="30%" width="25%">
+            <h4 id="testimonial-name"> Mayank </h4>
+            <small id="testimonial-subtitle">Aero</small>
+            <p id="testimonial-text">
+            <blockquote>
+                <br><br>The testimonial comes in this box which is rounded and will be arranged alternate
+                left and right
+                <br><br>
+            </blockquote>
+            </p>
         </div>
     </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
 
-    <script>
-    </script>
+<script>
+</script>
+<div id="team-heading">  
+    <div id="team-heading-text">
+<h1>Team</h1>
+</div>
+</div>
+<div id="center-image">
+    <div class="named">
+        <img src="data:image/jpeg;base64,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" height="80%" width="100%">
+        Name
+        <br>
+        Designation
+    </div>
+</div>
+<br>
+<br>
+<div id="team">
+    <div class="named">
+        <img src="data:image/jpeg;base64,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" height="80%" width="100%">
+        Name
+        <br>
+        Designation
+    </div>
+    <div class="named">
+        <img src="data:image/jpeg;base64,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" height="80%" width="100%">
+        Name
+        <br>
+        Designation
+    </div>
+    <div class="named">
+        <img src="data:image/jpeg;base64,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" height="80%" width="100%">
+        Name
+        <br>
+        Designation
+    </div>
+    <div class="named">
+        <img src="data:image/jpeg;base64,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"
+            height="80%" width="100%">
+        Name
+        <br>
+        Designation
+    </div>
+    <div class="named">
+        <img src="data:image/jpeg;base64,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" height="80%" width="100%">
+        Name
+        <br>
+        Designation
+    </div>
+    <div class="named">
+        <img src="data:image/jpeg;base64,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" height="80%" width="100%">
+        Name
+        <br>
+        Designation
+    </div>
+</div>
 
 {% endblock %}
