@@ -21,7 +21,7 @@ def profile(request):
     context = {
         'mentors': Mentor.objects.all()
     }
-    return render(request, "profile.html",context)
+    return render(request, "mentorlist.html",context)
 
 
 def login(request):
@@ -36,8 +36,8 @@ def login(request):
         if password == requested_profile.password:
             context = {'email': email}
             return redirect('profile')
-
-        return redirect('profile')
+        context = {'message': 'Incorrect Password', 'class': 'danger'}
+        return render(request, 'login_ritwik.html', context)
     return render(request, 'login_ritwik.html')
 
 
@@ -262,5 +262,6 @@ def update(request):
     #     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
-
+def test(request):
+    return render(request, 'personal_info.html')
 
