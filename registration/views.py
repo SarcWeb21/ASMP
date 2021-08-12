@@ -262,5 +262,6 @@ def update(request):
     #     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
-
+def test(request):
+    return render(request, 'personal_info.html')
 
