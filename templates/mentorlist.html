@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="page2" class="profind"><!-- Mentor Display -->
-    <p>Mentor Cards</p>
+<p>Mentor Cards</p>
+<div class="mininav">
+  <ul>
+    <li>Profile</li>
+    <li>Mentor</li>
+    <li>Wishlist</li>
+  </ul>
+</div>
     <div class="cardare">
     {% for mentor in mentors %}
     <div class="scene scene--card">
@@ -27,9 +33,15 @@ right: -20px;"><p style="position: absolute; top: -8px; right: 12px;">+</p></a>
           <p>{{mentor.degree}}</p>
           <p>{{mentor.city}}</p>
           <p>{{mentor.department}}</p>
-          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;
-          top: -20px;
-          right: -20px;">+</a>
+          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+color: #da7c49;
+width: 60px;
+height: 60px;
+font-size: 50px;
+border-radius: 9999px;
+font-weight: 300;
+top: -20px;
+right: -20px;"><p style="position: absolute; top: -8px; right: 12px;">+</p></a>
         </div>
     </div>
   </div>
@@ -48,8 +60,5 @@ $( "a" ).click(
 				}
 			);
   </script>
-  </div>
-  
-  <!-- /page2 -->
   </div>
 {% endblock %}

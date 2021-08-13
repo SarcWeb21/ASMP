@@ -3,16 +3,18 @@
 
 <form action="update" method="post">
     {% csrf_token %}
-    {% for mentor in new %}
 
-    <div class="cardare">
+    <div class="cardare" style="width: 100%; justify-content: center; margin: 0;">
+      {% for mentor in new %}
         <div class="scene scene--card">
             <div class="cardm">
               <div class="card__face card__face--front">
                 <p style="border-bottom: white solid 2px;">{{mentor.hostel}}</p>
                 <p>{{mentor.discp}}</p>
                 <p>{{mentor.company}}</p>
-                <a href="{% url 'favourite_add' mentor.id %}">Remove </a>
+                <a href="{% url 'favourite_add' mentor.id %}" style="position: absolute;
+                bottom: 20px;
+                left: 105px; color: white;">X Remove </a>
       
               </div>
               <div class="card__face card__face--back">
@@ -21,7 +23,9 @@
                 <p>{{mentor.degree}}</p>
                 <p>{{mentor.city}}</p>
                 <p>{{mentor.department}}</p>
-                <a href="{% url 'favourite_add' mentor.id %}">Remove </a>
+                <a href="{% url 'favourite_add' mentor.id %}" style="position: absolute;
+                bottom: 20px;
+                left: 105px; color: white;">X Remove </a>
               </div>
               <select name="{{mentor.id}} preference" size="1" style="position: absolute; top: -20px; right: -20px; background-color: #f8a77b; height: 50px; width: 50px; border-radius: 50%; border: none;">
                 <option selected value="0"></option>
@@ -36,10 +40,19 @@
         <input hidden name="{{mentor.id}}" value="{{mentor.id}}">
 
 
-
+        {% endfor %}
     </div>
-    {% endfor %}
-    <input type="submit">
+    <div class="sub" style="width: 100%; text-align: center;">
+    <input type="submit" style="
+    width: 100px;
+    background-color: #da7c49;
+    outline: none;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 9999px;
+    box-shadow: 4px 4px 4px #6d6c6c;
+    color: white;">
+    </div>
 </form>
 <script>
 alert("{{error}}");
