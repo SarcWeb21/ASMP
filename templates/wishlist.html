@@ -5,24 +5,34 @@
     {% csrf_token %}
     {% for mentor in new %}
 
-    <div class="main">
-        <p>{{mentor.hostel}}</p>
-        <p>{{mentor.discp}}</p>
-        <p>{{mentor.company}}</p>
-        <p>{{mentor.designation}}</p>
-        <p>{{mentor.year}}</p>
-        <p>{{mentor.degree}}</p>
-        <p>{{mentor.city}}</p>
-        <p>{{mentor.department}}</p>
-        <a href="{% url 'favourite_add' mentor.id %}">Remove</a>
-        <select name="{{mentor.id}} preference" size="1">
-            <option selected value="0">--</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+    <div class="cardare">
+        <div class="scene scene--card">
+            <div class="cardm">
+              <div class="card__face card__face--front">
+                <p style="border-bottom: white solid 2px;">{{mentor.hostel}}</p>
+                <p>{{mentor.discp}}</p>
+                <p>{{mentor.company}}</p>
+                <a href="{% url 'favourite_add' mentor.id %}">Remove </a>
+      
+              </div>
+              <div class="card__face card__face--back">
+                <p>{{mentor.designation}}</p>
+                <p>{{mentor.year}}</p>
+                <p>{{mentor.degree}}</p>
+                <p>{{mentor.city}}</p>
+                <p>{{mentor.department}}</p>
+                <a href="{% url 'favourite_add' mentor.id %}">Remove </a>
+              </div>
+              <select name="{{mentor.id}} preference" size="1" style="position: absolute; top: -20px; right: -20px; background-color: #f8a77b; height: 50px; width: 50px; border-radius: 50%; border: none;">
+                <option selected value="0"></option>
+                <option value="1" style="border-radius: 50px;">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            </div>
+        </div>
         <input hidden name="{{mentor.id}}" value="{{mentor.id}}">
 
 

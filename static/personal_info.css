@@ -6,6 +6,8 @@
 
 body {
   padding: 20px 15%;
+  background-color: #5c9b98;
+  color: white;
 }
 form header {
   margin: 0 0 20px 0; 
@@ -16,6 +18,7 @@ form header div {
 }
 form header h2 {
   margin: 0 0 5px 0;
+  text-align: center;
 }
 form > div {
   clear: both;
@@ -55,6 +58,7 @@ textarea {
   border-left: 1px solid #ccc;
   border-right: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  border-radius: 10%;
 }
 input[type=text],
 input[type=email],

@@ -1,18 +1,55 @@
 {% extends "base.html" %}
 {% block content %}
-{% for mentor in mentors %}
+<div id="page2" class="profind"><!-- Mentor Display -->
+    <p>Mentor Cards</p>
+    <div class="cardare">
+    {% for mentor in mentors %}
+    <div class="scene scene--card">
+      <div class="cardm">
+        <div class="card__face card__face--front">
+<p style="border-bottom: white solid 2px;">{{mentor.hostel}}</p>
+<p>{{mentor.discp}}</p>
+<p>{{mentor.company}}</p>
+<a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+color: #da7c49;
+width: 60px;
+height: 60px;
+font-size: 50px;
+border-radius: 9999px;
+font-weight: 300;
+top: -20px;
+right: -20px;"><p style="position: absolute; top: -8px; right: 12px;">+</p></a>
 
-<div class="main">
-    <p>{{mentor.hostel}}</p>
-    <p>{{mentor.discp}}</p>
-    <p>{{mentor.company}}</p>
-    <p>{{mentor.designation}}</p>
-    <p>{{mentor.year}}</p>
-    <p>{{mentor.degree}}</p>
-    <p>{{mentor.city}}</p>
-    <p>{{mentor.department}}</p>
-    <a href="{% url 'favourite_add' mentor.id %}">Add to Wishlist</a>
-</div>
-{% endfor %}
-<a href="{% url 'favourite_list' %}">Wishlist</a>
+        </div>
+        <div class="card__face card__face--back">
+          <p>{{mentor.designation}}</p>
+          <p>{{mentor.year}}</p>
+          <p>{{mentor.degree}}</p>
+          <p>{{mentor.city}}</p>
+          <p>{{mentor.department}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;
+          top: -20px;
+          right: -20px;">+</a>
+        </div>
+    </div>
+  </div>
+  {% endfor %}
+  <script>
+//         var card = document.querySelector('.card');
+// card.addEventListener( 'click', function() {
+//   card.classList.toggle('is-flipped');
+// });
+$(".cardm").click(function(){
+$(this).toggleClass("is-flipped");
+});
+$( "a" ).click(
+				function(event){
+					event.stopPropagation();
+				}
+			);
+  </script>
+  </div>
+  
+  <!-- /page2 -->
+  </div>
 {% endblock %}

@@ -351,6 +351,7 @@ animation-fill-mode: forwards;
 	.cardare{
 		display: inline-flex;
 		flex-wrap: wrap;
+		margin: 20px;
 	}
 	.profnav{
 		position: fixed;
@@ -463,11 +464,13 @@ animation-fill-mode: forwards;
 	  }
 	  
 	  .card__face--front {
-		background: #0e4d7d;
+		background: #da7c49;
 	  }
-	  
+	  .cardm a.is-flipped{
+		  display: none;
+	  }
 	  .card__face--back {
-		background: #135b91;
+		background: #da7c49;
 		transform: rotateY(180deg);
 	  }
 	

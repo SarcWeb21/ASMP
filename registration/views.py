@@ -21,7 +21,7 @@ def profile(request):
     context = {
         'mentors': Mentor.objects.all()
     }
-    return render(request, "profile.html",context)
+    return render(request, "mentorlist.html",context)
 
 
 def login(request):
