@@ -44,18 +44,13 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     otp = models.CharField(max_length=6)
     password = models.CharField(max_length=20)
-
-
-class Information(models.Model):
-    profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
-    cpi = models.CharField(max_length=5)
-    address = models.CharField(max_length=200)
-    department = models.CharField(max_length=50)
-    rollno = models.CharField(max_length=12)
-
-
-class Preference(models.Model):
-
-    preference_no = models.IntegerField(default=0)
-    mentor_id = models.IntegerField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    pref_1 = models.OneToOneField(
+        Mentor, blank=True, null=True, on_delete=models.CASCADE, related_name='pref1')
+    pref_2 = models.OneToOneField(
+        Mentor, blank=True, null=True, on_delete=models.CASCADE, related_name='pref2')
+    pref_3 = models.OneToOneField(
+        Mentor, blank=True, null=True, on_delete=models.CASCADE, related_name='pref3')
+    pref_4 = models.OneToOneField(
+        Mentor, blank=True, null=True, on_delete=models.CASCADE, related_name='pref4')
+    pref_5 = models.OneToOneField(
+        Mentor, blank=True, null=True, on_delete=models.CASCADE, related_name='pref5')

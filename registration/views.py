@@ -6,22 +6,22 @@ from django.contrib.auth.decorators import login_required
 import math
 import random
 from django.contrib.auth.models import User
-from .models import Mentor, Preference, Profile, Information
+from .models import Mentor, Profile
 from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
-from .models import Mentor, Preference, Information
 
 
 def index(request):
     return render(request, "land.html")
 
+
 def profile(request):
     context = {
         'mentors': Mentor.objects.all()
     }
-    return render(request, "mentorlist.html",context)
+    return render(request, "mentorlist.html", context)
 
 
 def login(request):
@@ -117,14 +117,13 @@ def otp(request):
     return render(request, 'otp.html')
 
 
-
 def favourite_add(request, id):
+    email = request.session['email']
     mentor = get_object_or_404(Mentor, id=id)
-    if mentor.favourites.filter(id=request.user.id).exists():
-        mentor.favourites.remove(request.user)
-        Preference.objects.filter(mentor_id=id, user=request.user).delete()
+    if mentor.favourites.filter(id=User.objects.filter(email=email).first().id).exists():
+        mentor.favourites.remove(User.objects.filter(email=email).first())
     else:
-        mentor.favourites.add(request.user)
+        mentor.favourites.add(User.objects.filter(email=email).first())
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
     # def favourite_add(request, id):
@@ -149,7 +148,9 @@ def maxscore(max_mentees):
 
 
 def favourite_list(request):
-    new = Mentor.objects.all().filter(favourites=request.user)
+    email = request.session['email']
+    new = Mentor.objects.all().filter(
+        favourites=User.objects.filter(email=email).first())
     ids = new.values_list('pk', flat=True)
     for i in ids:
         mentor_update = Mentor.objects.get(id=i)
@@ -175,7 +176,9 @@ def returnScore(pref):
 
 
 def update(request):
-    new = Mentor.objects.all().filter(favourites=request.user)
+    email = request.session['email']
+    new = Mentor.objects.all().filter(
+        favourites=User.objects.filter(email=email).first())
     ids = new.values_list('pk', flat=True)
     error_msg = None
     c = 0
@@ -195,7 +198,7 @@ def update(request):
 
         else:
             continue
-    if (c>0):
+    if (c > 0):
         for i in ids:
             preference = request.POST[str(i) + " preference"]
             p = int(preference)
@@ -212,16 +215,23 @@ def update(request):
     if not error_msg:
         for i in ids:
             preference = request.POST[str(i) + " preference"]
-            mentor = request.POST[str(i)]
-            user = request.user
+            mentor = Mentor.objects.get(id=request.POST[str(i)])
             if (preference != "0"):
-                preference_user = Preference(preference_no=int(
-                    preference), mentor_id=int(mentor), user=user)
-                preference_user.save()
-                mentor_update = Mentor.objects.get(id=int(mentor))
-                mentor_update.score = mentor_update.score + \
-                    returnScore(int(preference))
-                mentor_update.save()
+                profile = Profile.objects.get(
+                    user=User.objects.filter(email=email).first())
+                if (preference == "1"):
+                    profile.pref_1 = mentor
+                elif (preference == "2"):
+                    profile.pref_2 = mentor
+                elif (preference == "3"):
+                    profile.pref_3 = mentor
+                elif (preference == "4"):
+                    profile.pref_4 = mentor
+                elif (preference == "5"):
+                    profile.pref_5 = mentor
+                profile.save()
+                mentor.score = mentor.score + returnScore(int(preference))
+                mentor.save()
             else:
                 continue
         return render(request, 'finish.html')
@@ -264,4 +274,3 @@ def update(request):
 
 def test(request):
     return render(request, 'personal_info.html')
-
