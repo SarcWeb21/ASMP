@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-
+<div class="mininav">
+  <ul>
+    <li>Profile</li>
+    <li>Mentor</li>
+    <li>Wishlist</li>
+  </ul>
+</div>
 <form action="update" method="post">
     {% csrf_token %}
 
