@@ -586,6 +586,36 @@ animation-fill-mode: forwards;
 }
 
 /*End of team style*/
+/*Start of Sneak Peak Style*/
 
+  .card-text
+  {
+      padding: 5% 5% 5% 5%;
+  }
+  #sneak-peak
+  {
+    display: flex;
+    justify-content: space-around;
+  }
+  .cardmkp {
+    margin: 30px auto;
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: 0.4s;
+	background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlD2uauf0P7ABwLWWHHcr7__ygEqsTD0eekg&usqp=CAU);
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	text-overflow: clip;
+	font-size: larger;
+  }
+  .cardmkp:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+      -5px -5px 30px 15px rgba(0,0,0,0.22);
+  }
 
 
