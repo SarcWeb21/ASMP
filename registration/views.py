@@ -11,6 +11,12 @@ from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
+from django.contrib.auth import login, authenticate
+
+
+class Meta:
+    model = User
+    fields = ('username', 'first_name', 'last_name', 'email', 'password')
 
 
 def index(request):
@@ -24,7 +30,7 @@ def profile(request):
     return render(request, "mentorlist.html", context)
 
 
-def login(request):
+def login1(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -34,6 +40,7 @@ def login(request):
             return render(request, 'login_ritwik.html', context)
         requested_profile = Profile.objects.filter(user=user).first()
         if password == requested_profile.password:
+            login(request, user)
             context = {'email': email}
             return redirect('profile')
         context = {'message': 'Incorrect Password', 'class': 'danger'}
@@ -118,12 +125,12 @@ def otp(request):
 
 
 def favourite_add(request, id):
-    email = request.session['email']
+
     mentor = get_object_or_404(Mentor, id=id)
-    if mentor.favourites.filter(id=User.objects.filter(email=email).first().id).exists():
-        mentor.favourites.remove(User.objects.filter(email=email).first())
+    if mentor.favourites.filter(id=request.user.id).exists():
+        mentor.favourites.remove(request.user)
     else:
-        mentor.favourites.add(User.objects.filter(email=email).first())
+        mentor.favourites.add(request.user)
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
     # def favourite_add(request, id):
@@ -148,9 +155,9 @@ def maxscore(max_mentees):
 
 
 def favourite_list(request):
-    email = request.session['email']
+
     new = Mentor.objects.all().filter(
-        favourites=User.objects.filter(email=email).first())
+        favourites=request.user)
     ids = new.values_list('pk', flat=True)
     for i in ids:
         mentor_update = Mentor.objects.get(id=i)
@@ -176,9 +183,9 @@ def returnScore(pref):
 
 
 def update(request):
-    email = request.session['email']
+    # email = request.session['email']
     new = Mentor.objects.all().filter(
-        favourites=User.objects.filter(email=email).first())
+        favourites=request.user)
     ids = new.values_list('pk', flat=True)
     error_msg = None
     c = 0
@@ -217,8 +224,7 @@ def update(request):
             preference = request.POST[str(i) + " preference"]
             mentor = Mentor.objects.get(id=request.POST[str(i)])
             if (preference != "0"):
-                profile = Profile.objects.get(
-                    user=User.objects.filter(email=email).first())
+                profile = Profile.objects.get(user=request.user)
                 if (preference == "1"):
                     profile.pref_1 = mentor
                 elif (preference == "2"):
