@@ -44,6 +44,13 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     otp = models.CharField(max_length=6)
     password = models.CharField(max_length=20)
+    fullname = models.CharField(max_length=100, blank=True)
+    rollno = models.CharField(max_length=100, blank=True)
+    department = models.CharField(max_length=100, blank=True)
+    degree = models.CharField(max_length=100, blank=True)
+    contactno = models.CharField(max_length=100, blank=True)
+    sop = models.CharField(max_length=500, blank=True)
+    suggestions = models.CharField(max_length=500, blank=True)
     pref_1 = models.OneToOneField(
         Mentor, blank=True, null=True, on_delete=models.CASCADE, related_name='pref1')
     pref_2 = models.OneToOneField(
