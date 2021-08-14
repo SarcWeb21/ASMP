@@ -29,15 +29,15 @@ class Mentor(models.Model):
     designation = models.CharField(max_length=200)
     year = models.CharField(max_length=20, default="2018")
     degree = models.CharField(max_length=100, default="BTech")
-    country = models.CharField(max_length=100, default="India")
     department = models.CharField(max_length=100, default="Civil")
-    interest = models.CharField(max_length=200, null=True)
-    favourites = models.ManyToManyField(
-        User, related_name='favourite', default=None, blank=True)
     maxmentees = models.IntegerField(default=0)
     score = models.FloatField(default=0.0)
     available = models.BooleanField(default=True)
     maxscore = models.FloatField(default=0.0)
+    country = models.CharField(max_length=100, default="India")
+    interest = models.CharField(max_length=200, null=True)
+    favourites = models.ManyToManyField(
+        User, related_name='favourite', default=None, blank=True)
 
 
 class Profile(models.Model):

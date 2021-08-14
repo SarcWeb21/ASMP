@@ -16,6 +16,7 @@ urlpatterns = [
     path('favourites', views.favourite_list, name="favourite_list"),
     path('update', views.update, name='update'),
     path('test', views.test, name="test"),
+    path('personal_info_add', views.personal_info_add, name="personal_info_add")
     #     path('profile/', views.profile, name='profile'),
     #     path('logn', auth_views.LoginView.as_view(template_name='login.html'), name='login2'),
     #     path('logout/', auth_views.LogoutView.as_view(template_name='register/logout.html'), name='logout'),

@@ -279,4 +279,18 @@ def update(request):
 
 
 def test(request):
-    return render(request, 'personal_info.html')
+    profile = Profile.objects.get(user=request.user)
+    return render(request, 'personal_info.html', {'profile': profile})
+
+
+def personal_info_add(request):
+    profile = Profile.objects.get(user=request.user)
+    profile.fullname = request.POST['Field1']
+    profile.rollno = request.POST['Field2']
+    profile.department = request.POST['Field3']
+    profile.degree = request.POST['Field4']
+    profile.contactno = request.POST['Field5']
+    profile.sop = request.POST['Field6']
+    profile.suggestions = request.POST['Field7']
+    profile.save()
+    return render(request, 'personal_info.html', {'profile': profile})
