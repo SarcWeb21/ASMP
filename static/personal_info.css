@@ -20,6 +20,7 @@ body {
   padding: 20px 15%;
   background-color: #5c9b98;
   color: white;
+  font-family: 'Source Sans Pro','Roboto', sans-serif;
 }
 form header {
   margin: 0 0 20px 0; 

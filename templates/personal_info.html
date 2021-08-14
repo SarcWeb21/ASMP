@@ -3,8 +3,12 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'personal_info.css' %}"/>
+  
   <link rel="stylesheet" href="{% static 'style.css' %}"/>
+  <link rel="stylesheet" href="{% static 'personal_info.css' %}"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
   <meta charset="utf-8">
   <title></title>
 </head>
@@ -27,6 +31,7 @@
     
     <div class = "form-container" style="padding-right: 20%;"> 
       <form action="#" method="post">
+        {% csrf_token %}
       <div class="pinfo align-items-center">
         <div class = "pinfo-constituents">
           <label class="desc" id="title1" for="Field1">Full Name:</label>
