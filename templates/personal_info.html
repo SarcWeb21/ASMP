@@ -21,9 +21,9 @@
   <div class="container-fluid">
     <div class="mininav">
       <ul>
-        <li>Profile</li>
-        <li>Mentor</li>
-        <li>Wishlist</li>
+        <li><a href="{% url 'test' %}" style="text-decoration: none; color: inherit;">Profile</a></li>
+        <li><a href="{% url 'profile' %}" style="text-decoration: none; color: inherit;">Mentors</a></li>
+        <li><a href="{% url 'favourite_list' %}" style="text-decoration: none; color: inherit;">Wishlist</a></li>
       </ul>
     </div>
     <div class="form-area">
@@ -86,7 +86,7 @@
           </div>
           <div class="text-center" style="padding-left:10px">
             <button type="submit" class="submit-button">
-              Submit
+              Save
             </button>
           </div>
         </form>

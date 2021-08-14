@@ -2,9 +2,9 @@
 {% block content %}
 <div class="mininav">
   <ul>
-    <li>Profile</li>
-    <li>Mentor</li>
-    <li>Wishlist</li>
+    <li><a href="{% url 'test' %} color: inherit;" style="text-decoration: none;">Profile</a></li>
+    <li><a href="{% url 'profile' %} color: inherit;" style="text-decoration: none;">Mentors</a></li>
+    <li><a href="{% url 'favourite_list' %} color: inherit;" style="text-decoration: none;">Wishlist</a></li>
   </ul>
 </div>
 <form action="update" method="post">
