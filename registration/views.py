@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from .models import Mentor, Profile
 from django.contrib import messages
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import send_mail, BadHeaderError
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.contrib.auth import login, authenticate
 
@@ -52,7 +52,6 @@ def register(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         name = request.POST.get('name')
-        mobile = request.POST.get('mobile')
         password = request.POST.get('password')
         check_user = User.objects.filter(email=email).first()
         # if not email.split('@')[1]=='iitb.ac.in':
@@ -94,7 +93,8 @@ def generateOTP():
 def send_otp(email, otp_generated):
     subject = "OTP request"
     message = 'Hi, your otp is ' + str(otp_generated)
-    email_from = settings.EMAIL_HOST_USER
+    # email_from = ('pragyaptl131996@gmail.com', 'SARC IIT Bombay')
+    email_from = 'pragyaptl131996@gmail.com'
     recipient = [email, ]
     send_mail(subject, message, email_from, recipient, fail_silently=True)
     return None
