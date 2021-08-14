@@ -54,9 +54,9 @@ def register(request):
         name = request.POST.get('name')
         password = request.POST.get('password')
         check_user = User.objects.filter(email=email).first()
-        # if not email.split('@')[1]=='iitb.ac.in':
-        #     context = {'message': 'Login using your ldap id', 'class':'danger'}
-        #     return render(request, 'register.html', context)
+        if not email.split('@')[1]=='iitb.ac.in':
+            context = {'message': 'Please login using your LDAP ID', 'class':'danger'}
+            return render(request, 'register.html', context)
         if check_user:
             context = {'message': 'User already exists', 'class': 'danger'}
             return render(request, 'register.html', context)

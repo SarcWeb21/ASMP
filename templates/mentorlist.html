@@ -3,20 +3,20 @@
 <p>Mentor Cards</p>
 <div class="mininav">
   <ul>
-    <li>Profile</li>
-    <li>Mentor</li>
-    <li>Wishlist</li>
+    <li><a href="{% url 'test' %}" style="text-decoration: none; color: inherit;">Profile</a></li>
+    <li><a href="{% url 'profile' %}" style="text-decoration: none; color: inherit;">Mentors</a></li>
+    <li><a href="{% url 'favourite_list' %}" style="text-decoration: none; color: inherit;">Wishlist</a></li>
   </ul>
 </div>
-    <div class="cardare">
-    {% for mentor in mentors %}
-    <div class="scene scene--card">
-      <div class="cardm">
-        <div class="card__face card__face--front">
-<p style="border-bottom: white solid 2px;">{{mentor.hostel}}</p>
-<p>{{mentor.discp}}</p>
-<p>{{mentor.company}}</p>
-<a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+<div class="cardare">
+  {% for mentor in mentors %}
+  <div class="scene scene--card">
+    <div class="cardm">
+      <div class="card__face card__face--front">
+        <p style="border-bottom: white solid 2px;">{{mentor.hostel}}</p>
+        <p>{{mentor.discp}}</p>
+        <p>{{mentor.company}}</p>
+        <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
 color: #da7c49;
 width: 60px;
 height: 60px;
@@ -24,16 +24,18 @@ font-size: 50px;
 border-radius: 9999px;
 font-weight: 300;
 top: -20px;
-right: -20px;"><p style="position: absolute; top: -8px; right: 12px;">+</p></a>
+right: -20px;">
+          <p style="position: absolute; top: -8px; right: 12px;">+</p>
+        </a>
 
-        </div>
-        <div class="card__face card__face--back">
-          <p>{{mentor.designation}}</p>
-          <p>{{mentor.year}}</p>
-          <p>{{mentor.degree}}</p>
-          <p>{{mentor.city}}</p>
-          <p>{{mentor.department}}</p>
-          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+      </div>
+      <div class="card__face card__face--back">
+        <p>{{mentor.designation}}</p>
+        <p>{{mentor.year}}</p>
+        <p>{{mentor.degree}}</p>
+        <p>{{mentor.city}}</p>
+        <p>{{mentor.department}}</p>
+        <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
 color: #da7c49;
 width: 60px;
 height: 60px;
@@ -41,24 +43,26 @@ font-size: 50px;
 border-radius: 9999px;
 font-weight: 300;
 top: -20px;
-right: -20px;"><p style="position: absolute; top: -8px; right: 12px;">+</p></a>
-        </div>
+right: -20px;">
+          <p style="position: absolute; top: -8px; right: 12px;">+</p>
+        </a>
+      </div>
     </div>
   </div>
   {% endfor %}
   <script>
-//         var card = document.querySelector('.card');
-// card.addEventListener( 'click', function() {
-//   card.classList.toggle('is-flipped');
-// });
-$(".cardm").click(function(){
-$(this).toggleClass("is-flipped");
-});
-$( "a" ).click(
-				function(event){
-					event.stopPropagation();
-				}
-			);
+    //         var card = document.querySelector('.card');
+    // card.addEventListener( 'click', function() {
+    //   card.classList.toggle('is-flipped');
+    // });
+    $(".cardm").click(function () {
+      $(this).toggleClass("is-flipped");
+    });
+    $("a").click(
+      function (event) {
+        event.stopPropagation();
+      }
+    );
   </script>
-  </div>
+</div>
 {% endblock %}
