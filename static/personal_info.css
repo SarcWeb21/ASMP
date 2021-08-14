@@ -9,16 +9,19 @@
   margin: 5px 0px;
 }
 .header{
-  margin: 10px;
+  margin-left: 15%;
+  margin-bottom: 2%;
   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
-
+.form-area{
+  margin-top: 10%;
+}
 body {
   padding: 20px 15%;
   background-color: #5c9b98;
   color: white;
 }
-/*form header {
+form header {
   margin: 0 0 20px 0; 
 }
 form header div {
@@ -57,7 +60,7 @@ fieldset {
   padding: 0;
 }
 
-input[type=text],
+/*input[type=text],
 input[type=email],
 input[type=url],
 input[type=password],
@@ -67,10 +70,10 @@ textarea {
   border-left: 1px solid #ccc;
   border-right: 1px solid #eee;
   border-bottom: 1px solid #eee;
-  border-radius: 0%;
-  
+  border-radius: 0%;  
   align-items: flex-end;
   float: right;
+  border-radius: 0%;
 }
 input[type=text],
 input[type=email],
@@ -85,6 +88,24 @@ input[type=password]:focus,
 textarea:focus {
   outline: 0;
   border-color: #4697e4;
+}*/
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+textarea{
+  width: 100%;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  float: right;
+}
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password] {
+ width: 50%; 
 }
 
 @media (max-width: 600px) {
@@ -116,4 +137,15 @@ textarea:focus {
 	legend {
   	text-align: right;
   }
-}*/
+}
+
+.submit-button {
+    padding: 10px 20px;
+    margin: 2px 10px;
+    background-color: #da7c49;
+    border-radius: 9999px;
+    color: white;
+    box-shadow: 4px 4px 4px #6d6c6c;
+    padding-left: 10%;
+    margin-left: 30%;
+  }

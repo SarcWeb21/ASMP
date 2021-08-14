@@ -367,6 +367,16 @@ animation-fill-mode: forwards;
 		color: white;
 		box-shadow: 4px 4px 4px #6d6c6c;
 	}
+	.submit-button{
+		padding: 10px 20px !important;
+		margin: 2px 10px;
+		margin-left: 25%;
+		background-color: #da7c49;
+		border-radius: 9999px;
+		color: white;
+		box-shadow: 4px 4px 4px #6d6c6c;
+
+	}
 	.cardare{
 		display: inline-flex;
 		flex-wrap: wrap;
