@@ -12,6 +12,7 @@
   {% comment %} <link rel="stylesheet" href="{% static 'personal_info.css' %}" /> {% endcomment %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
   <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro:wght@200&display=swap"
     rel="stylesheet">
   <meta charset="utf-8">
@@ -19,7 +20,32 @@
 </head>
 
 <body>
-<p style="font-size : 2rem; margin-top: 1rem; font-weight: bold">Mentor Cards</p>
+  <div class="main" style="margin-top:1rem; margin-left:2rem;color: #190644;">
+    <h1>ASMP</h1>
+</div>
+<div id="menu-bar">
+<div id="menu" onclick="onClickMenu()">
+<div id="bar1" class="bar"></div>
+<div id="bar2" class="bar"></div>
+<div id="bar3" class="bar"></div>
+</div>
+    <div class="social" id="social">
+        <ul>
+            {% comment %} <li><a href="#"><i class="bi bi-facebook" style="font-size: 20px;"></i></a></li>
+            <li><a href="#"><i class="bi bi-instagram" style="font-size: 20px;"></i></a></li>
+            <li><a href="#"><i class="bi bi-linkedin" style="font-size: 20px;"></i></a></li>
+            <li><a href="#"><i class="bi bi-twitter" style="font-size: 20px;"></i></a></li> {% endcomment %}
+        </ul>
+    </div>
+<ul class="nav" id="nav">
+<li><a href="#sect">About</a></li>
+<li><a href="#faqSect">FAQ</a></li>
+<li><a href="#sneakSect">Sneak Peak</a></li>
+<li><a href="#testSect">Testimonial</a></li>
+        <li><a href="{% url 'register' %}">Register/Sign In</a></li>
+</ul>
+</div>
+<div class="menu-bg" id="menu-bg"></div>
 <div class="mininav">
   <ul>
     <li><a href="{% url 'test' %}" style="text-decoration: none; color: inherit;">Profile</a></li>
@@ -27,53 +53,444 @@
     <li><a href="{% url 'favourite_list' %}" style="text-decoration: none; color: inherit;">Wishlist</a></li>
   </ul>
 </div>
-<div class="cardare">
-  {% for mentor in mentors %}
-  <div class="scene scene--card">
-    <div class="cardm">
-      <div class="card__face card__face--front">
-        <p class = "id-mentor" style="border-bottom: white solid 2px;">{{mentor.mentor_id}}</p>
-        <p>{{mentor.discp}}</p>
-        <p>{{mentor.company}}</p>
-        <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
-color: #da7c49;
-width: 60px;
-height: 60px;
-font-size: 50px;
-border-radius: 9999px;
-font-weight: 300;
-top: -20px;
-right: -20px;">
-          <p style="position: absolute; top: -8px; right: 12px;">+</p>
-        </a>
-
-      </div>
-      <div class="card__face card__face--back">
-        <p>{{mentor.designation}}</p>
-        <p>{{mentor.year}}</p>
-        <p>{{mentor.degree}}</p>
-        <p>{{mentor.city}}</p>
-        <p>{{mentor.department}}</p>
-        <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
-color: #da7c49;
-width: 60px;
-height: 60px;
-font-size: 50px;
-border-radius: 9999px;
-font-weight: 300;
-top: -20px;
-right: -20px;">
-          <p style="position: absolute; top: -8px; right: 12px;">+</p>
-        </a>
+<h1 class="profhead">
+  Choose You Mentor
+</h1>
+<div class="profs">
+  <ul>
+  <li id="al">Analytics</li>
+  <li id="core">Core Engineering</li>
+  <li id="ci">Civil Services</li>
+  <li id="design">Design</li>
+  <li id="fin">Finance</li>
+  <li id="it">IT</li>
+  <li id="manc">Management and Consulting</li>
+  <li id="man">Management</li>
+  <li id="re">Research</li>
+  <li id="strat">Strategy Consulting</li>
+  <li id="other">Other</li>
+  </ul>
+</div>
+<div class="al">
+  <div class="cardare">
+    {% for mentor in mentors_analytics %}
+    <div class="scene scene--card">
+      <div class="cardm">
+        <div class="card__face card__face--front">
+          <p class = "id-mentor" style="border-bottom: white solid 2px;">{{mentor.mentor_id}}</p>
+          <p>{{mentor.discp}}</p>
+          <p>{{mentor.company}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" class="wish">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+  
+        </div>
+        <div class="card__face card__face--back">
+          <p>{{mentor.designation}}</p>
+          <p>{{mentor.year}}</p>
+          <p>{{mentor.degree}}</p>
+          <p>{{mentor.city}}</p>
+          <p>{{mentor.department}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+  color: #da7c49;
+  width: 60px;
+  height: 60px;
+  font-size: 50px;
+  border-radius: 9999px;
+  font-weight: 300;
+  top: -20px;
+  right: -20px;">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+        </div>
       </div>
     </div>
+    {% endfor %}
+    
   </div>
-  {% endfor %}
-  
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
+<div class="core">
+  <div class="cardare">
+    {% for mentor in mentors_core %}
+    <div class="scene scene--card">
+      <div class="cardm">
+        <div class="card__face card__face--front">
+          <p class = "id-mentor" style="border-bottom: white solid 2px;">{{mentor.mentor_id}}</p>
+          <p>{{mentor.discp}}</p>
+          <p>{{mentor.company}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" class="wish">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+  
+        </div>
+        <div class="card__face card__face--back">
+          <p>{{mentor.designation}}</p>
+          <p>{{mentor.year}}</p>
+          <p>{{mentor.degree}}</p>
+          <p>{{mentor.city}}</p>
+          <p>{{mentor.department}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+  color: #da7c49;
+  width: 60px;
+  height: 60px;
+  font-size: 50px;
+  border-radius: 9999px;
+  font-weight: 300;
+  top: -20px;
+  right: -20px;">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+  </div>
+</div>
+<div class="ci">
+  <div class="cardare">
+    {% for mentor in mentors_ci %}
+    <div class="scene scene--card">
+      <div class="cardm">
+        <div class="card__face card__face--front">
+          <p class = "id-mentor" style="border-bottom: white solid 2px;">{{mentor.mentor_id}}</p>
+          <p>{{mentor.discp}}</p>
+          <p>{{mentor.company}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" class="wish">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+  
+        </div>
+        <div class="card__face card__face--back">
+          <p>{{mentor.designation}}</p>
+          <p>{{mentor.year}}</p>
+          <p>{{mentor.degree}}</p>
+          <p>{{mentor.city}}</p>
+          <p>{{mentor.department}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+  color: #da7c49;
+  width: 60px;
+  height: 60px;
+  font-size: 50px;
+  border-radius: 9999px;
+  font-weight: 300;
+  top: -20px;
+  right: -20px;">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+  </div>
+</div>
+<div class="design">
+  <div class="cardare">
+    {% for mentor in mentors_design %}
+    <div class="scene scene--card">
+      <div class="cardm">
+        <div class="card__face card__face--front">
+          <p class = "id-mentor" style="border-bottom: white solid 2px;">{{mentor.mentor_id}}</p>
+          <p>{{mentor.discp}}</p>
+          <p>{{mentor.company}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" class="wish">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+  
+        </div>
+        <div class="card__face card__face--back">
+          <p>{{mentor.designation}}</p>
+          <p>{{mentor.year}}</p>
+          <p>{{mentor.degree}}</p>
+          <p>{{mentor.city}}</p>
+          <p>{{mentor.department}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+  color: #da7c49;
+  width: 60px;
+  height: 60px;
+  font-size: 50px;
+  border-radius: 9999px;
+  font-weight: 300;
+  top: -20px;
+  right: -20px;">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+  </div>
+</div>
+<div class="fin">
+  <div class="cardare">
+    {% for mentor in mentors_fin %}
+    <div class="scene scene--card">
+      <div class="cardm">
+        <div class="card__face card__face--front">
+          <p class = "id-mentor" style="border-bottom: white solid 2px;">{{mentor.mentor_id}}</p>
+          <p>{{mentor.discp}}</p>
+          <p>{{mentor.company}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" class="wish">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+  
+        </div>
+        <div class="card__face card__face--back">
+          <p>{{mentor.designation}}</p>
+          <p>{{mentor.year}}</p>
+          <p>{{mentor.degree}}</p>
+          <p>{{mentor.city}}</p>
+          <p>{{mentor.department}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+  color: #da7c49;
+  width: 60px;
+  height: 60px;
+  font-size: 50px;
+  border-radius: 9999px;
+  font-weight: 300;
+  top: -20px;
+  right: -20px;">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+  </div>
+</div>
+<div class="it">
+  <div class="cardare">
+    {% for mentor in mentors_it %}
+    <div class="scene scene--card">
+      <div class="cardm">
+        <div class="card__face card__face--front">
+          <p class = "id-mentor" style="border-bottom: white solid 2px;">{{mentor.mentor_id}}</p>
+          <p>{{mentor.discp}}</p>
+          <p>{{mentor.company}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" class="wish">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+  
+        </div>
+        <div class="card__face card__face--back">
+          <p>{{mentor.designation}}</p>
+          <p>{{mentor.year}}</p>
+          <p>{{mentor.degree}}</p>
+          <p>{{mentor.city}}</p>
+          <p>{{mentor.department}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+  color: #da7c49;
+  width: 60px;
+  height: 60px;
+  font-size: 50px;
+  border-radius: 9999px;
+  font-weight: 300;
+  top: -20px;
+  right: -20px;">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+  </div>
+</div>
+<div class="manc">
+  <div class="cardare">
+    {% for mentor in mentors_manc %}
+    <div class="scene scene--card">
+      <div class="cardm">
+        <div class="card__face card__face--front">
+          <p class = "id-mentor" style="border-bottom: white solid 2px;">{{mentor.mentor_id}}</p>
+          <p>{{mentor.discp}}</p>
+          <p>{{mentor.company}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" class="wish">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+  
+        </div>
+        <div class="card__face card__face--back">
+          <p>{{mentor.designation}}</p>
+          <p>{{mentor.year}}</p>
+          <p>{{mentor.degree}}</p>
+          <p>{{mentor.city}}</p>
+          <p>{{mentor.department}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+  color: #da7c49;
+  width: 60px;
+  height: 60px;
+  font-size: 50px;
+  border-radius: 9999px;
+  font-weight: 300;
+  top: -20px;
+  right: -20px;">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+  </div>
+</div>
+<div class="man">
+  <div class="cardare">
+    {% for mentor in mentors_man %}
+    <div class="scene scene--card">
+      <div class="cardm">
+        <div class="card__face card__face--front">
+          <p class = "id-mentor" style="border-bottom: white solid 2px;">{{mentor.mentor_id}}</p>
+          <p>{{mentor.discp}}</p>
+          <p>{{mentor.company}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" class="wish">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+  
+        </div>
+        <div class="card__face card__face--back">
+          <p>{{mentor.designation}}</p>
+          <p>{{mentor.year}}</p>
+          <p>{{mentor.degree}}</p>
+          <p>{{mentor.city}}</p>
+          <p>{{mentor.department}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+  color: #da7c49;
+  width: 60px;
+  height: 60px;
+  font-size: 50px;
+  border-radius: 9999px;
+  font-weight: 300;
+  top: -20px;
+  right: -20px;">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+  </div>
+</div>
+<div class="other">
+  <div class="cardare">
+    {% for mentor in mentors_other %}
+    <div class="scene scene--card">
+      <div class="cardm">
+        <div class="card__face card__face--front">
+          <p class = "id-mentor" style="border-bottom: white solid 2px;">{{mentor.mentor_id}}</p>
+          <p>{{mentor.discp}}</p>
+          <p>{{mentor.company}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" class="wish">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+  
+        </div>
+        <div class="card__face card__face--back">
+          <p>{{mentor.designation}}</p>
+          <p>{{mentor.year}}</p>
+          <p>{{mentor.degree}}</p>
+          <p>{{mentor.city}}</p>
+          <p>{{mentor.department}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+  color: #da7c49;
+  width: 60px;
+  height: 60px;
+  font-size: 50px;
+  border-radius: 9999px;
+  font-weight: 300;
+  top: -20px;
+  right: -20px;">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+  </div>
+</div>
+<div class="re">
+  <div class="cardare">
+    {% for mentor in mentors_re %}
+    <div class="scene scene--card">
+      <div class="cardm">
+        <div class="card__face card__face--front">
+          <p class = "id-mentor" style="border-bottom: white solid 2px;">{{mentor.mentor_id}}</p>
+          <p>{{mentor.discp}}</p>
+          <p>{{mentor.company}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" class="wish">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+  
+        </div>
+        <div class="card__face card__face--back">
+          <p>{{mentor.designation}}</p>
+          <p>{{mentor.year}}</p>
+          <p>{{mentor.degree}}</p>
+          <p>{{mentor.city}}</p>
+          <p>{{mentor.department}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+  color: #da7c49;
+  width: 60px;
+  height: 60px;
+  font-size: 50px;
+  border-radius: 9999px;
+  font-weight: 300;
+  top: -20px;
+  right: -20px;">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+  </div>
+</div>
+<div class="strat">
+  <div class="cardare">
+    {% for mentor in mentors_strat %}
+    <div class="scene scene--card">
+      <div class="cardm">
+        <div class="card__face card__face--front">
+          <p class = "id-mentor" style="border-bottom: white solid 2px;">{{mentor.mentor_id}}</p>
+          <p>{{mentor.discp}}</p>
+          <p>{{mentor.company}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" class="wish">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+  
+        </div>
+        <div class="card__face card__face--back">
+          <p>{{mentor.designation}}</p>
+          <p>{{mentor.year}}</p>
+          <p>{{mentor.degree}}</p>
+          <p>{{mentor.city}}</p>
+          <p>{{mentor.department}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+  color: #da7c49;
+  width: 60px;
+  height: 60px;
+  font-size: 50px;
+  border-radius: 9999px;
+  font-weight: 300;
+  top: -20px;
+  right: -20px;">
+            <p style="position: absolute; top: -12px; right: 14px;">+</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="{% static 'app.js' %}"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
     crossorigin="anonymous"></script>
@@ -87,6 +504,7 @@ right: -20px;">
       // });
       $(".cardm").click(function () {
         $(this).toggleClass("is-flipped");
+        $(this).children(".card__face--front").children(".wish").toggleClass("flipped");
       });
       $("a").click(
         function (event) {

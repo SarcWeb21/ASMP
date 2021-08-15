@@ -25,7 +25,17 @@ def index(request):
 
 def profile(request):
     context = {
-        'mentors': Mentor.objects.all()
+        'mentors_analytics': Mentor.objects.filter(interest = "Analytics"),
+        'mentors_core': Mentor.objects.filter(interest = "Core engineering"),
+        'mentors_ci': Mentor.objects.filter(interest = "Civil Services/Govt. of India"),
+        'mentors_design': Mentor.objects.filter(interest = "Design"),
+        'mentors_fin': Mentor.objects.filter(interest = "Finance"),
+        'mentors_it': Mentor.objects.filter(interest = "IT"),
+        'mentors_manc': Mentor.objects.filter(interest = "Management consulting"),
+        'mentors_man': Mentor.objects.filter(interest = "Management"),
+        'mentors_other': Mentor.objects.filter(interest = "Other"),
+        'mentors_re': Mentor.objects.filter(interest = "Research"),
+        'mentors_strat': Mentor.objects.filter(interest = "Strategy consulting"),
     }
     return render(request, "mentorlist.html", context)
 

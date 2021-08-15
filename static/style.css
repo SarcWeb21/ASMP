@@ -46,6 +46,8 @@ body{
 	margin: 0 20px;
 	transition: 0.3s ease;
 	display: none !important;
+	text-align: right;
+	transform: translateX(0px) !important;
 }
 .menu-bg, #menu-bar{
 	top: 0;
@@ -83,6 +85,7 @@ body{
 }
 .change{
 	display: block !important;
+	transform: translateX(75px);
 }
 .social{
     position: absolute;
@@ -262,6 +265,9 @@ iframe{
     margin-left: 25%;
     margin-right: 25%;
 }
+.invisible {
+	display: none;
+  }
 /*#about:hover + #circle
 {
 background-color: #0CF;
@@ -358,6 +364,14 @@ animation-fill-mode: forwards;
 	/* End of section */
 
 	/* Profile Page */
+	.profhead{
+		text-align: center;
+    width: 40%;
+    margin: 2rem auto;
+    color: white;
+    border-bottom: white solid;
+    margin-bottom: 1rem;
+	}
 	.mininav ul{
 		display: flex;
 		list-style-type: none;
@@ -371,6 +385,7 @@ animation-fill-mode: forwards;
 		background-color: #da7c49;
 		border-radius: 9999px;
 		color: white;
+		font-weight: 700;
 		box-shadow: 4px 4px 4px #6d6c6c;
 	}
 	.submit-button{
@@ -386,57 +401,26 @@ animation-fill-mode: forwards;
 	.cardare{
 		display: inline-flex;
 		flex-wrap: wrap;
-		margin: 20px;
 		flex-direction: row;
 		justify-content: space-around;
 	}
-	.profnav{
-		position: fixed;
-	}
-	.profnav ul {
+	.profs ul{
 		list-style-type: none;
-		margin: 0;
-		  height: 100vh;
-		clear: both; /* clear space around (left and right side), this pushes other elements downward */   
-	  }
-	  
-	  div.content {
-		  margin: 0;
-		padding: 0;
-		clear: both;
-	  }
-	  
-	  div.content .profind {
-		padding: 0 10px;
-	  }
-	  
-	  h1 {
-		  font-family: Verdana, Geneva, sans-serif;
-		margin-top: 0;
-	  }
-	  
-	  .profnav ul li {
-		margin: 0.5em 0;
-		padding: 0.8em;
-		color: black;
-		text-align: left;
-	  }
-	  
-	  .profnav li.current {
-		  background-color: #f7a4b1;
-		  border-left: solid #0e4d7d 4px;
-	  }
-	  
-	  
-	  .profnav li a { text-decoration: none; }
-	  .profnav li a:link {color:black;}      /* unvisited link */
-	  .profnav li a:visited {color:black;}  /* visited link */
-	  .profnav li a:hover {transform: scale(1.2);}  /* mouse over link */
-	  .profnav li a:active {opacity: 0.8;}  /* selected link */
-	  
-	  #page3 {
-		background-color: #e0ebeb;
-	  }
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-top: 40px;
+	}
+	.profs ul li{
+		padding: 10px 20px;
+		margin: 8px 10px;
+		background-color: #da7c49;
+		border-radius: 9999px;
+		color: white;
+		box-shadow: 4px 4px 4px #6d6c6c;
+		font-size: smaller;
+		cursor: pointer;
+	}
 	  
 	  footer {
 		  clear: both;
@@ -505,6 +489,20 @@ animation-fill-mode: forwards;
 	  .card__face--front {
 		background: #da7c49;
 	  }
+	  .wish{
+		  position: absolute;background-color: #77bbbb;
+  color: #da7c49;
+  width: 60px;
+  height: 60px;
+  font-size: 50px;
+  border-radius: 9999px;
+  font-weight: 300;
+  top: -20px;
+  right: -20px;
+}
+	.wish.flipped{
+		  display: none;
+	  }
 	  .card__face--back {
 		background: #da7c49;
 		transform: rotateY(180deg);
@@ -512,7 +510,12 @@ animation-fill-mode: forwards;
 	  .id-mentor{
 		  font-size: 20px;
 	  }
-	
+	.wishdrop{
+		position: absolute; top: -20px; right: -20px; background-color: #f8a77b; height: 50px; width: 50px; border-radius: 50%; border: none;
+	}
+	.wishdrop.flipped{
+		display: none;
+	}
 	@media only screen and (max-width: 800px){
 		.profnav ul{
 			display: flex;
@@ -581,8 +584,15 @@ animation-fill-mode: forwards;
 	@media only screen and (max-width: 750px){
 		.mininav ul{
 			position: relative;
-			right: 0;
-			justify-content: center;
+    right: 0;
+    justify-content: center;
+    border-bottom: white solid 3px;
+    padding-bottom: 20px;
+    width: 80%;
+    margin: 20px auto;
+		}
+		.profhead{
+			margin-top: 0rem;
 		}
 	}
 	/*wishlist*/

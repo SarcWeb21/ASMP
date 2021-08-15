@@ -17,8 +17,32 @@
 </head>
 
 <body>
-
-  <div class="container-fluid">
+  <div class="main" style="margin-top:1rem; margin-left:2rem;color: #190644;">
+    <h1>ASMP</h1>
+</div>
+<div id="menu-bar">
+<div id="menu" onclick="onClickMenu()">
+<div id="bar1" class="bar"></div>
+<div id="bar2" class="bar"></div>
+<div id="bar3" class="bar"></div>
+</div>
+    <div class="social" id="social">
+        <ul>
+            {% comment %} <li><a href="#"><i class="bi bi-facebook" style="font-size: 20px;"></i></a></li>
+            <li><a href="#"><i class="bi bi-instagram" style="font-size: 20px;"></i></a></li>
+            <li><a href="#"><i class="bi bi-linkedin" style="font-size: 20px;"></i></a></li>
+            <li><a href="#"><i class="bi bi-twitter" style="font-size: 20px;"></i></a></li> {% endcomment %}
+        </ul>
+    </div>
+<ul class="nav" id="nav">
+<li><a href="#sect">About</a></li>
+<li><a href="#faqSect">FAQ</a></li>
+<li><a href="#sneakSect">Sneak Peak</a></li>
+<li><a href="#testSect">Testimonial</a></li>
+        <li><a href="{% url 'register' %}">Register/Sign In</a></li>
+</ul>
+</div>
+<div class="menu-bg" id="menu-bg"></div>
     <div class="mininav">
       <ul>
         <li><a href="{% url 'test' %}" style="text-decoration: none; color: inherit;">Profile</a></li>
@@ -27,13 +51,11 @@
       </ul>
     </div>
     <div class="form-area">
-      <div class="header text-center" style="width:75%">
-        <h1 class="text-center">
+        <h1 class="profhead">
           Personal Information
         </h1>
-      </div>
-
-      <div class="form-container" style="padding-right: 20%;">
+        <div class="formmain" style="width: 100%; justify-content: center;">
+      <div class="form-container">
         <form action="personal_info_add" method="post">
           {% csrf_token %}
           <div class="pinfo align-items-center">
@@ -119,13 +141,8 @@
           </div>
         </form>
       </div>
+      </div>
     </div>
-  </div>
-
-
-
-
-
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>

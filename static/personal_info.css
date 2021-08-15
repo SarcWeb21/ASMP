@@ -8,16 +8,8 @@
 .pinfo-constituents{
   margin: 5px 0px;
 }
-.header{
-  margin-left: 15%;
-  margin-bottom: 2%;
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-}
-.form-area{
-  margin-top: 10%;
-}
+
 body {
-  padding: 20px 15%;
   background-color: #5c9b98;
   color: white;
   font-family: 'Source Sans Pro','Roboto', sans-serif;
@@ -42,16 +34,17 @@ form > div {
 form > div > div > div {
   margin: 0 0 5px 0;
 }
-form > div > label,
-legend {
-	width: 25%;
+form > div > label{
+	width: 5%;
   float: left;
   padding-right: 10px;
 }
 form > div > div,
 form > div > fieldset > div {
-  width: 75%;
+  width: 95%;
   float: right;
+  padding-right: 12%;
+  padding-left: 8%;
 }
 form > div > fieldset label {
 	font-size: 90%;

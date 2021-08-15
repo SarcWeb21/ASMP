@@ -177,5 +177,161 @@ $(document).ready(function(){
 	
 }); // end $(document).ready method
 
-/* scroll-gimmick */
+//profiles nav
+$(document).ready(function(){
+	$(".al").removeClass('invisible');
+	$(".core").addClass('invisible');
+	$(".ci").addClass('invisible');
+	$(".design").addClass('invisible');
+	$(".fin").addClass('invisible');
+	$(".it").addClass('invisible');
+	$(".manc").addClass('invisible');
+	$(".man").addClass('invisible');
+	$(".re").addClass('invisible');
+	$(".strat").addClass('invisible');
+	$(".other").addClass('invisible');
+});
+$("#al").click(function(){
+	$(".al").removeClass('invisible');
+	$(".core").addClass('invisible');
+	$(".ci").addClass('invisible');
+	$(".design").addClass('invisible');
+	$(".fin").addClass('invisible');
+	$(".it").addClass('invisible');
+	$(".manc").addClass('invisible');
+	$(".man").addClass('invisible');
+	$(".re").addClass('invisible');
+	$(".strat").addClass('invisible');
+	$(".other").addClass('invisible');
+})
+$("#core").click(function(){
+	$(".al").addClass('invisible');
+	$(".core").removeClass('invisible');
+	$(".ci").addClass('invisible');
+	$(".design").addClass('invisible');
+	$(".fin").addClass('invisible');
+	$(".it").addClass('invisible');
+	$(".manc").addClass('invisible');
+	$(".man").addClass('invisible');
+	$(".re").addClass('invisible');
+	$(".strat").addClass('invisible');
+	$(".other").addClass('invisible');
+})
+$("#ci").click(function(){
+	$(".al").addClass('invisible');
+	$(".core").addClass('invisible');
+	$(".ci").removeClass('invisible');
+	$(".design").addClass('invisible');
+	$(".fin").addClass('invisible');
+	$(".it").addClass('invisible');
+	$(".manc").addClass('invisible');
+	$(".man").addClass('invisible');
+	$(".re").addClass('invisible');
+	$(".strat").addClass('invisible');
+	$(".other").addClass('invisible');
+})
+$("#design").click(function(){
+	$(".al").addClass('invisible');
+	$(".core").addClass('invisible');
+	$(".ci").addClass('invisible');
+	$(".design").removeClass('invisible');
+	$(".fin").addClass('invisible');
+	$(".it").addClass('invisible');
+	$(".manc").addClass('invisible');
+	$(".man").addClass('invisible');
+	$(".re").addClass('invisible');
+	$(".strat").addClass('invisible');
+	$(".other").addClass('invisible');
+})
+$("#fin").click(function(){
+	$(".al").addClass('invisible');
+	$(".core").addClass('invisible');
+	$(".ci").addClass('invisible');
+	$(".design").addClass('invisible');
+	$(".fin").removeClass('invisible');
+	$(".it").addClass('invisible');
+	$(".manc").addClass('invisible');
+	$(".man").addClass('invisible');
+	$(".re").addClass('invisible');
+	$(".strat").addClass('invisible');
+	$(".other").addClass('invisible');
+})
+$("#it").click(function(){
+	$(".al").addClass('invisible');
+	$(".core").addClass('invisible');
+	$(".ci").addClass('invisible');
+	$(".design").addClass('invisible');
+	$(".fin").addClass('invisible');
+	$(".it").removeClass('invisible');
+	$(".manc").addClass('invisible');
+	$(".man").addClass('invisible');
+	$(".re").addClass('invisible');
+	$(".strat").addClass('invisible');
+	$(".other").addClass('invisible');
+})
+$("#manc").click(function(){
+	$(".al").addClass('invisible');
+	$(".core").addClass('invisible');
+	$(".ci").addClass('invisible');
+	$(".design").addClass('invisible');
+	$(".fin").addClass('invisible');
+	$(".it").addClass('invisible');
+	$(".manc").removeClass('invisible');
+	$(".man").addClass('invisible');
+	$(".re").addClass('invisible');
+	$(".strat").addClass('invisible');
+	$(".other").addClass('invisible');
+})
+$("#man").click(function(){
+	$(".al").addClass('invisible');
+	$(".core").addClass('invisible');
+	$(".ci").addClass('invisible');
+	$(".design").addClass('invisible');
+	$(".fin").addClass('invisible');
+	$(".it").addClass('invisible');
+	$(".manc").addClass('invisible');
+	$(".man").removeClass('invisible');
+	$(".re").addClass('invisible');
+	$(".strat").addClass('invisible');
+	$(".other").addClass('invisible');
+})
+$("#re").click(function(){
+	$(".al").addClass('invisible');
+	$(".core").addClass('invisible');
+	$(".ci").addClass('invisible');
+	$(".design").addClass('invisible');
+	$(".fin").addClass('invisible');
+	$(".it").addClass('invisible');
+	$(".manc").addClass('invisible');
+	$(".man").addClass('invisible');
+	$(".re").removeClass('invisible');
+	$(".strat").addClass('invisible');
+	$(".other").addClass('invisible');
+})
+$("#strat").click(function(){
+	$(".al").addClass('invisible');
+	$(".core").addClass('invisible');
+	$(".ci").addClass('invisible');
+	$(".design").addClass('invisible');
+	$(".fin").addClass('invisible');
+	$(".it").addClass('invisible');
+	$(".manc").addClass('invisible');
+	$(".man").addClass('invisible');
+	$(".re").addClass('invisible');
+	$(".strat").removeClass('invisible');
+	$(".other").addClass('invisible');
+})
+$("#other").click(function(){
+	$(".al").addClass('invisible');
+	$(".core").addClass('invisible');
+	$(".ci").addClass('invisible');
+	$(".design").addClass('invisible');
+	$(".fin").addClass('invisible');
+	$(".it").addClass('invisible');
+	$(".manc").addClass('invisible');
+	$(".man").addClass('invisible');
+	$(".re").addClass('invisible');
+	$(".strat").addClass('invisible');
+	$(".other").removeClass('invisible');
+})
 	
