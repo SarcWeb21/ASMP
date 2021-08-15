@@ -644,12 +644,13 @@ animation-fill-mode: forwards;
 {
     height: 48%;
     width: 15%;
-    border:1px solid black;
-    background-color: turquoise;
-    box-shadow: 5px 5px 10px #888888;
+    /* border:1px solid black;
+    background-color: turquoise; */
+    /* box-shadow: 5px 5px 10px #888888; */
     color: black;
     font-size: 1.25em;
-    line-height: 1.5;
+	line-height: 1;
+	transform: translateX(-50%);
 
 }
 #center-image
@@ -657,6 +658,10 @@ animation-fill-mode: forwards;
 
     width:100%;
 
+}
+.named img
+{
+	border-radius: 50%;
 }
 #center-image .named
 {
@@ -817,6 +822,11 @@ img {vertical-align: middle;}
   @media only screen and (max-width: 300px) {
 	.prev, .next,.text {font-size: 11px}
   }
+/* .text-center
+{
+	transform: translateX(-50%);
+
+} */
 
 
 

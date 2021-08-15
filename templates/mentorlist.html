@@ -53,6 +53,7 @@
     <li><a href="{% url 'favourite_list' %}" style="text-decoration: none; color: inherit;">Wishlist</a></li>
   </ul>
 </div>
+<<<<<<< HEAD
 <h1 class="profhead">
   Choose You Mentor
 </h1>
@@ -179,6 +180,44 @@
             <p style="position: absolute; top: -12px; right: 14px;">+</p>
           </a>
         </div>
+=======
+<div class="cardare">
+  {% for mentor in mentors %}
+  <div class="scene scene--card">
+    <div class="cardm">
+      <div class="card__face card__face--front">
+        <p class = "id-mentor" style="border-bottom: white solid 2px;">{{mentor.mentor_id}}</p>
+        <p>{{mentor.designation}} , {{mentor.company}}</p>
+        <p>{{mentor.city}} , {{mentor.country}}</p>
+        <p>{{mentor.degree}} in {{mentor.department}} , {{mentor.year}}</p>
+        <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+color: #da7c49;
+width: 60px;
+height: 60px;
+font-size: 50px;
+border-radius: 9999px;
+font-weight: 300;
+top: -20px;
+right: -20px;">
+          <p style="position: absolute; top: -8px; right: 12px;">+</p>
+        </a>
+
+      </div>
+      <div class="card__face card__face--back">
+        <p>{{mentor.gender}}</p>
+        <p>{{mentor.discp}}</p>
+        <a href="{% url 'favourite_add' mentor.id %}" style="    position: absolute;background-color: #77bbbb;
+color: #da7c49;
+width: 60px;
+height: 60px;
+font-size: 50px;
+border-radius: 9999px;
+font-weight: 300;
+top: -20px;
+right: -20px;">
+          <p style="position: absolute; top: -8px; right: 12px;">+</p>
+        </a>
+>>>>>>> 3df13a8c88240e5621dc4a5ee4081801a01ce064
       </div>
     </div>
     {% endfor %}
