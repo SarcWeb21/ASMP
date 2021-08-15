@@ -51,13 +51,12 @@ class Profile(models.Model):
     contactno = models.CharField(max_length=100, blank=True)
     sop = models.CharField(max_length=500, blank=True)
     suggestions = models.CharField(max_length=500, blank=True)
-    pref_1 = models.OneToOneField(
-        Mentor, blank=True, null=True, on_delete=models.CASCADE, related_name='pref1')
-    pref_2 = models.OneToOneField(
-        Mentor, blank=True, null=True, on_delete=models.CASCADE, related_name='pref2')
-    pref_3 = models.OneToOneField(
-        Mentor, blank=True, null=True, on_delete=models.CASCADE, related_name='pref3')
-    pref_4 = models.OneToOneField(
-        Mentor, blank=True, null=True, on_delete=models.CASCADE, related_name='pref4')
-    pref_5 = models.OneToOneField(
-        Mentor, blank=True, null=True, on_delete=models.CASCADE, related_name='pref5')
+    linkedin = models.CharField(max_length=100, blank=True)
+    experience = models.CharField(max_length=500, blank=True)
+    goal = models.CharField(max_length=500, blank=True)
+    obstacle = models.CharField(max_length=500, blank=True)
+    pref_1 = models.IntegerField(blank=True, null=True)
+    pref_2 = models.IntegerField(blank=True, null=True)
+    pref_3 = models.IntegerField(blank=True, null=True)
+    pref_4 = models.IntegerField(blank=True, null=True)
+    pref_5 = models.IntegerField(blank=True, null=True)

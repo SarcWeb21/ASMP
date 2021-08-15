@@ -189,6 +189,11 @@ def update(request):
     ids = new.values_list('pk', flat=True)
     error_msg = None
     c = 0
+    profile = Profile.objects.get(user=request.user)
+    if (not profile.fullname or not profile.rollno or not profile.department or not profile.degree or not profile.contactno):
+        error_msg = "Enter complete personal information"
+    elif (not profile.sop):
+        error_msg = "Enter SOP"
     for i in ids:
         preference = request.POST[str(i) + " preference"]
         if (preference != "0"):
@@ -224,17 +229,16 @@ def update(request):
             preference = request.POST[str(i) + " preference"]
             mentor = Mentor.objects.get(id=request.POST[str(i)])
             if (preference != "0"):
-                profile = Profile.objects.get(user=request.user)
                 if (preference == "1"):
-                    profile.pref_1 = mentor
+                    profile.pref_1 = mentor.id
                 elif (preference == "2"):
-                    profile.pref_2 = mentor
+                    profile.pref_2 = mentor.id
                 elif (preference == "3"):
-                    profile.pref_3 = mentor
+                    profile.pref_3 = mentor.id
                 elif (preference == "4"):
-                    profile.pref_4 = mentor
+                    profile.pref_4 = mentor.id
                 elif (preference == "5"):
-                    profile.pref_5 = mentor
+                    profile.pref_5 = mentor.id
                 profile.save()
                 mentor.score = mentor.score + returnScore(int(preference))
                 mentor.save()
