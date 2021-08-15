@@ -62,6 +62,11 @@
               <input id="Field5" name="Field5" type="text" class="field text fn" value="{{profile.contactno}}" size="8"
                 tabindex="1">
             </div>
+            <div class="pinfo-constituents">
+              <label class="desc" id="title10" for="Field10">LinkedIn:</label>
+              <input id="Field10" name="Field10" type="text" class="field text fn" value="{{profile.linkedin}}" size="8"
+                tabindex="1">
+            </div>
           </div>
           <div>
             <div class="text-center">
@@ -70,18 +75,41 @@
               </label>
             </div>
             <div>
-              <textarea id="Field6" name="Field6" spellcheck="true" rows="5" cols="30" tabindex="4"
-                value="{{profile.sop}}"></textarea>
+              <textarea id="Field6" name="Field6" spellcheck="true" rows="5" cols="30"
+                tabindex="4">{{profile.sop}}</textarea>
             </div>
           </div>
           <div>
             <div class="text-center">
-              <label class="desc" id="title7" for="Field7" value="{{profile.suggestions}}">
-                Suggestions
+              <label class="desc" id="title7" for="Field7">
+                Prior Experience
               </label>
             </div>
             <div>
-              <textarea id="Field7" name="Field7" spellcheck="true" rows="5" cols="30" tabindex="4"></textarea>
+              <textarea id="Field7" name="Field7" spellcheck="true" rows="5" cols="30"
+                tabindex="4">{{profile.experience}}</textarea>
+            </div>
+          </div>
+          <div>
+            <div class="text-center">
+              <label class="desc" id="title8" for="Field8">
+                Goal to Achieve
+              </label>
+            </div>
+            <div>
+              <textarea id="Field8" name="Field8" spellcheck="true" rows="5" cols="30"
+                tabindex="4">{{profile.goal}}</textarea>
+            </div>
+          </div>
+          <div>
+            <div class="text-center">
+              <label class="desc" id="title9" for="Field9">
+                Obstacle in Way
+              </label>
+            </div>
+            <div>
+              <textarea id="Field9" name="Field9" spellcheck="true" rows="5" cols="30"
+                tabindex="4">{{profile.obstacle}}</textarea>
             </div>
           </div>
           <div class="text-center" style="padding-left:10px">

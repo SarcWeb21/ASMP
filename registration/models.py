@@ -50,7 +50,6 @@ class Profile(models.Model):
     degree = models.CharField(max_length=100, blank=True)
     contactno = models.CharField(max_length=100, blank=True)
     sop = models.CharField(max_length=500, blank=True)
-    suggestions = models.CharField(max_length=500, blank=True)
     linkedin = models.CharField(max_length=100, blank=True)
     experience = models.CharField(max_length=500, blank=True)
     goal = models.CharField(max_length=500, blank=True)

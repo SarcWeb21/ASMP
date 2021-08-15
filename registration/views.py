@@ -164,7 +164,7 @@ def favourite_list(request):
         mentor_update.maxscore = maxscore(mentor_update.maxmentees)
         if float(mentor_update.score) > mentor_update.maxscore:
             mentor_update.available = False
-            mentor_update.save()
+        mentor_update.save()
     return render(request, 'wishlist.html', {'new': new})
 
 
@@ -294,7 +294,10 @@ def personal_info_add(request):
     profile.department = request.POST['Field3']
     profile.degree = request.POST['Field4']
     profile.contactno = request.POST['Field5']
+    profile.linkedin = request.POST['Field10']
     profile.sop = request.POST['Field6']
-    profile.suggestions = request.POST['Field7']
+    profile.experience = request.POST['Field7']
+    profile.goal = request.POST['Field8']
+    profile.obstacle = request.POST['Field9']
     profile.save()
     return render(request, 'personal_info.html', {'profile': profile})
