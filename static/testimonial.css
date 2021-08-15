@@ -2,7 +2,7 @@
 {
     background-color: turquoise;
     margin-right: 100px;
-    color: white;
+    color: "#081927";
     font-size:  1.5em;
     align-content: center;
     border-radius: 5px 20px 20px 5px;  
@@ -48,7 +48,7 @@
     width:43%;
     border-radius: 13%;
     background-color:turquoise;
-    color: white;
+    color: "white";
     padding: 5px 20px;
     font-size:  1.25em;
     box-shadow: -5px 10px 10px #b7b7b79e;

@@ -54,9 +54,9 @@ def register(request):
         name = request.POST.get('name')
         password = request.POST.get('password')
         check_user = User.objects.filter(email=email).first()
-        if not email.split('@')[1]=='iitb.ac.in':
-            context = {'message': 'Please login using your LDAP ID', 'class':'danger'}
-            return render(request, 'register.html', context)
+        # if not email.split('@')[1]=='iitb.ac.in':
+        #     context = {'message': 'Please login using your LDAP ID', 'class':'danger'}
+        #     return render(request, 'register.html', context)
         if check_user:
             context = {'message': 'User already exists', 'class': 'danger'}
             return render(request, 'register.html', context)
@@ -111,7 +111,7 @@ def otp(request):
     if request.method == 'POST':
         otp = request.POST.get('otp')
         if otp == otp_to_check:
-            user = User(email=email, username=name)
+            user = User(email=email, username=email)
             profile = Profile(user=user, password=password)
             user.save()
             profile.save()

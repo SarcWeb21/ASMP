@@ -152,10 +152,11 @@ h3 {
 	width: 60%;
   }
   .collapse.show{
-	background-color: #26e7ad;
+	background-color: #E6A8B7;
     padding: 20px 10px;
     margin-right: 100px;
     border-radius: 10px;
+	margin-left: 100px;
   }
   .slick-prev:before,
   .slick-next:before {
@@ -208,9 +209,7 @@ h3 {
 /* Added by Mayank */
     #circle {
 background: rgb(11, 190, 50);
-border-radius: 50%;
-height: 300px;
-width: 300px;
+
 margin-left: 40%;
 display: inline-flex;
 align-items: center; 
@@ -381,6 +380,8 @@ animation-fill-mode: forwards;
 		display: inline-flex;
 		flex-wrap: wrap;
 		margin: 20px;
+		flex-direction: row;
+		justify-content: space-around;
 	}
 	.profnav{
 		position: fixed;
@@ -639,8 +640,7 @@ animation-fill-mode: forwards;
   }
   .cardmkp {
     margin: 30px auto;
-    width: 300px;
-    height: 300px;
+    
     border-radius: 30px;
   box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
     cursor: pointer;
@@ -696,10 +696,10 @@ img {vertical-align: middle;}
   
  
   .text {
-	color: #f2f2f2;
+	color: #0e0c0c;
 	font-size: 15px;
 	padding: 8px 12px;
-	position: absolute;
+	/* position: absolute; */
 	bottom: 8px;
 	width: 100%;
 	text-align: center;
