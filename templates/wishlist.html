@@ -1,0 +1,93 @@
+{% comment %} {% extends "base.html" %}
+{% block content %} {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="{% static 'style.css' %}" />
+  {% comment %} <link rel="stylesheet" href="{% static 'personal_info.css' %}" /> {% endcomment %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro:wght@200&display=swap"
+    rel="stylesheet">
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+<div class="mininav">
+  <ul>
+    <li><a href="{% url 'test' %} " style="text-decoration: none; color: inherit;">Profile</a></li>
+    <li><a href="{% url 'profile' %} " style="text-decoration: none; color: inherit;">Mentors</a></li>
+    <li><a href="{% url 'favourite_list' %} " style="text-decoration: none; color: inherit;">Wishlist</a></li>
+  </ul>
+</div>
+<form action="update" method="post">
+  {% csrf_token %}
+
+  <div class="cardare" style="width: 100%; justify-content: center; margin-top: 10rem;">
+    {% for mentor in new %}
+    <div class="scene scene--card">
+      <div class="cardm">
+        <div class="card__face card__face--front">
+          <p style="border-bottom: white solid 2px;">{{mentor.hostel}}</p>
+          <p>{{mentor.discp}}</p>
+          <p>{{mentor.company}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="position: absolute;
+                bottom: 20px;
+                left: 105px; color: white;">X Remove </a>
+
+        </div>
+        <div class="card__face card__face--back">
+          <p>{{mentor.designation}}</p>
+          <p>{{mentor.year}}</p>
+          <p>{{mentor.degree}}</p>
+          <p>{{mentor.city}}</p>
+          <p>{{mentor.department}}</p>
+          <a href="{% url 'favourite_add' mentor.id %}" style="position: absolute;
+                bottom: 20px;
+                left: 105px; color: white;">X Remove </a>
+        </div>
+        <select name="{{mentor.id}} preference" size="1"
+          style="position: absolute; top: -20px; right: -20px; background-color: #f8a77b; height: 50px; width: 50px; border-radius: 50%; border: none;">
+          <option selected value="0"></option>
+          <option value="1" style="border-radius: 50px;">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+    <input hidden name="{{mentor.id}}" value="{{mentor.id}}">
+
+
+    {% endfor %}
+  </div>
+  <div class="sub" style="width: 100%; text-align: center;">
+    <input type="submit" style="
+    width: 100px;
+    background-color: #da7c49;
+    outline: none;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 9999px;
+    box-shadow: 4px 4px 4px #6d6c6c;
+    color: white;">
+  </div>
+</form>
+<!-- <script>
+alert("{{error}}");
+</script> -->
+<p>{{error}}</p>
+</body>
+
+</html>
+
+{% block content %}
+
+{% endblock %}

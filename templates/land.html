@@ -1,0 +1,411 @@
+
+{% extends "base.html" %}
+{% block content %}
+{%load static%}
+{% comment %} <div style="height: 140vh;">
+    <div id="set-height"></div> {% endcomment %}
+
+    {% comment %} <video id="v0" tabindex="0", autobuffer preload>
+        <source type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' src="static/handshake.mp4"></source>
+    </video>
+    <script src="static/sticky.js"></script>
+    <script>
+
+        enterView({
+            selector: 'section',
+            enter: function(el) {
+                el.classList.add('entered');
+            }
+        })
+    
+        var frameNumber = 0, // start video at frame 0
+        // lower numbers = faster playback
+        playbackConst = 1000, 
+        // get page height from video duration
+        setHeight = document.getElementById("set-height"), 
+        // select video element         
+        vid = document.getElementById('v0'); 
+        // var vid = $('#v0')[0]; // jquery option
+
+    // dynamically set the page height according to video length
+    vid.addEventListener('loadedmetadata', function() {
+    setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+    });
+
+    </script>
+        </div>
+    </div>
+    
+
+    window.requestAnimationFrame(scrollPlay);
+     {% endcomment %}
+    {% comment %} </script> {% endcomment %}
+{% comment %} </div> {% endcomment %}
+<div > 
+    <div class="progressm">
+        <div class="progressbar-wrap">
+            <div class="progressbar"></div>
+        </div>
+        <div class="progressper">
+        </div>
+    </div>
+    <script>
+        let progressSec = document.querySelector('.progressm');
+        let progressBar = document.querySelector('.progressbar');
+        let progressPer = document.querySelector('.progressper');
+        let progressBarWrap = document.querySelector('.progressbar-wrap');
+        let x, y;
+        function updateProg() {
+            progressBar.style.height = `${getScrollPer()}%`;
+            progressBarWrap.style.height = `${getScrollPer()}%`;
+            progressPer.innerHTML = `${Math.floor(getScrollPer())}`
+            requestAnimationFrame(updateProg)
+        }
+        function getScrollPer() {
+            return ((window.scrollY) / (document.body.scrollHeight - window.innerHeight) * 100)
+        }
+        updateProg()
+    </script>
+    <!-- <div class="main" style="margin-top:2rem; margin-left:2rem;color: #190644;">
+        <h1>ASMP</h1>
+    </div> -->
+    <div class="wrapperm" >
+        <div id="sect">
+            <div id="circle" style="color:white; border-radius: 50%; height: 400px; width: 400px; ">
+                About Us
+            </div>
+            <div id="aboutbox" style="color:white; width:330px; font-size:0.9rem;">
+                Alumni Student Mentorship Programme (ASMP) is an initiative by Student Alumni Relation Cell with an objective of creating a platform to foster relationships between alumni mentors and students that last forever. ASMP achieves this aim by bringing together alumni mentors and student mentees through various events to help form a rapport and strengthen the connection between them, thus enhancing the IITB Alumni network.
+    
+            </div>
+        </div>
+        <script>
+            var abreveal = document.querySelector("#circle");
+            var textreveal = document.querySelector("#aboutbox")
+            abreveal.addEventListener('mouseenter', function () {
+                abreveal.classList.toggle('moved');
+                textreveal.classList.toggle('moved');
+            }, { once: true });
+        </script>
+        <div style="padding: 56.25% 0 0 0; position: relative">
+            <div style="height:50%;position:absolute;top:0;width:50%"><iframe height="150%" width="150%;"
+                    src="https://embed.wave.video/6113e5d146e0fb0001bfe6e6" frameborder="0" allow="autoplay; fullscreen"
+                    scrolling="no"></iframe>
+            </div>
+        </div>
+        <!--carousel-->
+    
+      </div>
+        <div id="faqSect"></div>
+        <div id="testimonial-heading" style="background-color: #F9F187; !important; ">
+            <div id="testimonial-heading-text" >
+                <h1>FAQs</h1>
+            </div>
+        </div>
+        <div class="d-flex mb-3" style="margin-left: 100px">
+            <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important; background-color : turquoise !important;">
+                <a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false"
+                    aria-controls="collapseExample" style="color: white; padding: 0px 10px;margin-left: 100px; margin-right:100px">
+                    Approximately how many days will it take to get the mentor and further information regarding the process:
+                    <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample1">
+            <div class="m" style="color : white !important; margin-left:100px; margin-right:100px">
+                You will be allocated a mentor or be given further information regarding your allocation within 15 days.
+            </div>
+        </div>
+        <div class="d-flex mb-3" style="margin-left: 100px; margin-top: 3rem">
+            <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important; background-color : turquoise !important;">
+                <a data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false"
+                    aria-controls="collapseExample" style="color: white; padding: 0px 10px;margin-left: 100px; margin-right:100px">
+                    What is the time for which I will be allocated a mentor
+    
+                    <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample2">
+            <div class="m" style="color : white !important; margin-left:100px; margin-right:100px">
+                Your mentor is being assigned to you for a year, officially, but most people build lifelong bonds with their mentors and remain in touch even after the programme ends.
+    
+            </div>
+        </div>
+        <div class="d-flex mb-3" style="margin-left: 100px ; margin-top: 3rem">
+            <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important; background-color : turquoise !important;">
+                <a data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false"
+                    aria-controls="collapseExample" style="color: white; padding: 0px 10px;margin-left: 100px; margin-right:100px">
+                   I'm having problems with the login. What should I do?
+    
+                    <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample3">
+            <div class="m" style="color : white !important; margin-left:100px; margin-right:100px">
+               (mention general troubleshooting measures after asking the web team) If this doesn't work out, contact an ASMP coordinator as soon as possible.
+            </div>
+        </div>
+        <div class="d-flex mb-3" style="margin-left: 100px; margin-top: 3rem">
+            <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important; background-color : turquoise !important;">
+                <a data-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false"
+                    aria-controls="collapseExample" style="color: white; padding: 0px 10px;margin-left: 100px; margin-right:100px">
+                   How will I get notified about the process:
+    
+                    <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample4">
+            <div class="m" style="color : white !important; margin-left:100px; margin-right:100px">
+               You will receive emails notifying you about all the updates regarding the allocation. You will also receive contact details of your allocated mentor and information about the interactive sessions scheduled by us via email.
+            </div>
+        </div>
+        <div class="d-flex mb-3" style="margin-left: 100px; margin-top: 3rem">
+            <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important; background-color : turquoise !important;">
+                <a data-toggle="collapse" href="#collapseExample5" role="button" aria-expanded="false"
+                    aria-controls="collapseExample" style="color: white; padding: 0px 10px;margin-left: 100px; margin-right:100px">
+                   How will my personal details be used:
+    
+                    <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample5">
+            <div class="m" style="color : white !important; margin-left:100px; margin-right:100px">
+               Your personal details such as your name, roll number, and contact information will remain confidential till the allocation procedure. Only the allocated mentor will have access to your contact information.
+            </div>
+        </div>
+        <div class="d-flex mb-3" style="margin-left: 100px; margin-top: 3rem">
+            <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important; background-color : turquoise !important;">
+                <a data-toggle="collapse" href="#collapseExample6" role="button" aria-expanded="false"
+                    aria-controls="collapseExample" style="color: white; padding: 0px 10px;margin-left: 100px; margin-right:100px">
+                   What is the process after registration for a mentee:
+                    <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample6">
+            <div class="m" style="color : white !important; margin-left:100px; margin-right:100px">
+               A mentor will be allocated to you based on your preferences and SOPs after the registration is completed. You have to initiate the conversation with your mentor and then you can mutually decide the way ahead. We will also have a few follow-ups for your assistance.
+    
+            </div>
+        </div>
+        <div class="sliderContainer">
+        <ul style="list-style-type: none;">
+        <li>
+          <div class="slider single-item">
+            <div><img src="{% static "event/break.png" %}" style="width: 700px; margin-left : auto; margin-right: auto; "></div>
+            <div ><img src="{% static "event/mentor.png" %}" style="width: 700px; margin-left : auto; margin-right: auto; "></div>
+            <div><img src="{% static "event/shadow.png" %}" style="width: 700px; margin-left : auto; margin-right: auto; "></div>
+            <div><img src="{% static "event/group.png" %}" style="width: 700px; margin-left : auto; margin-right: auto; "></div>
+          </div>
+        </li>
+        <li class="hmm">
+        <div class="progressBarContainer">
+          <div style="margin: 40px; position: relative;">
+            <h4>Break The Ice</h4>
+            <p style="font-size : 0.9rem">Break The Ice kickstarts the mentoring process through a lunch-meeting for the mentor and mentee, which also fosters a personal interaction between the two.</p>
+            <span data-slick-index="0" class="progressBar" style="position: absolute; top: 0%; left: -10px;"></span>
+          </div>
+          <div style="margin: 40px; position: relative;">
+            <h4>Mentor-Mentee Meetup</h4>
+            <p style="font-size : 0.9rem">An open house discussion between alumni and mentees aimed at evaluation of the current ASMP structure through the lens of both alumni and students.</p>
+            <span data-slick-index="1" class="progressBar" style="position: absolute; top: 0%; left: -10px;"></span>
+          </div>
+          <div style="margin: 40px; position: relative;">
+            <h4>Shadow Programme</h4>
+            <p style="font-size : 0.9rem">The Shadow Programme lets mentees have a taste of the professional life of their mentor alumni by arranging a visit to the workplace of the mentor.</p>
+            <span data-slick-index="2" class="progressBar" style="position: absolute; top: 0%; left: -10px;"></span>
+          </div>
+          <div style="margin: 40px; position: relative;">
+            <h4>Group Mentoring</h4>
+            <p style="font-size : 0.9rem">Mentors are invited to interact with a group of 4-5 students to together give them insight into new ideas, opportunities and career options of their interest.</p>
+            <span data-slick-index="2" class="progressBar" style="position: absolute; top: 0%; left: -10px;"></span>
+          </div>
+        </div>
+        </li>
+        </ul>
+    
+    <br>
+    <br>
+  
+    <div id="sneakSect"></div>
+    <div id="testimonial-heading" style="background-color: #F9F187; !important;">
+        <div id="testimonial-heading-text">
+            <h1>Sneak Peak</h1>
+        </div>
+        
+    </div>
+        <div class="slideshow-container">
+    
+        <div class="mySlides fade">
+            <div class="cardmkp space" style="width: 400px; height: 400px;">
+                <p class="card-text">B.Tech., Mechanical Engineering
+                <br><br>Retail Program Manager, Apple
+                <br><br>Manages programs that improve operational capabilities of Apple's supply chain.He has led several global cross-functional teams and successfully implemented projects in various areas of supply chain planning.
+                <br><br>Profile : Analytics </p>
+            </div>
+        </div>
+        
+        <div class="mySlides fade">
+            <div class="cardmkp space" style="width: 400px; height: 400px;">
+                <p class="card-text">Dual Degree, Mechanical Engineering
+                <br><br>Senior. Engineering Manager, Tesla
+                <br><br>An Engineering Manager at Tesla. Former Product Development Eng. in Lime Lab. Has done M.Sc in Mech Eng. from Stanford University. Interested in Mech Engineering, Product design, Electronics, Auto-pilot, sensors and engineering management.
+                <br><br>Profile : Core Engineering</p>
+            </div>
+        </div>
+        
+        <div class="mySlides fade">
+            <div class="cardmkp space" style="width: 400px; height: 400px;">
+                <p class="card-text">B.Tech., Mechanical Engineering
+                <br><br>Deputy Development Commissioner cum Chief Executive Officer, Zila Parishad, Government of Bihar
+                <br><br>An IAS officer of 2016 batch, Bihar Cadre. Looking after public administration of the district (Vaishali, Bihar) in general, and development administration to be specific.
+                </p>
+            </div>
+        </div>
+        <div class="mySlides fade">
+            <div class="cardmkp space" style="width: 400px; height: 400px;">
+                <p class="card-text">M.Des., Industrial Design Centre
+                <br><br>Head- Styling Studio, Escorts Limited
+                <br><br>A versatile Automotive Designer, Design Strategist. Has diverse experience in nurturing many award winning styling/ design projects in automotive, agricultural and construction equipment domains. He has an experience of over 28 years.
+    "
+                <br><br>Profile : Design</p>
+            </div>
+        </div>
+        <div class="mySlides fade">
+            <div class="cardmkp space" style="width: 400px; height: 400px;">
+                <p class="card-text">Dual Degree, Electrical Engineering
+                <br><br>Vice President, WorldQuant
+                <br>Works majorly in the domain of Quantitative Finance and Algorithmic Trading. Machine Learning, Optimization are some of the skills required in this area. Has interned at Adobe Research and Tata Research, published research papers in Deep Learning.
+    "
+                <br><br>Profile : Finance</p>
+            </div>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" onclick="currentSlide(5)"></span>  
+        </div>
+        
+        <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>
+        <br>
+      
+        <div id="testSect"></div>
+        <div id="testimonial-heading" style="background-color: #F9F187; !important;">
+            <div id="testimonial-heading-text">
+                <h1>Testimonials</h1>
+            </div>
+        </div>
+        <div id="testimonials">
+            <div id="testimonial-box">
+                <img src="{% static "testimonials/shashank.png" %}"
+                    id="testimonial-image" height="100rem" width="45%" style="height : 10rem; width:10rem;">
+                <h4 id="testimonial-name"> Shashank  </h4>
+                {% comment %} <small id="testimonial-subtitle">Aero</small> {% endcomment %}
+                <p id="testimonial-text" >
+                <blockquote style="font-size : 1rem">
+                    <br><br>As a college student, it is often tough to get corrective guidance from an experienced individual. The student community around us is just as inexperienced as us. This is where ASMP appealed to me. Experienced alumni with tremendous professional experience mentor students to help us align our core priorities. Dynamic guidance ensures that we get the right advice at the right time to maximise output and streamline efforts so that we don't get any wake-up calls when placements come knocking a few years down the line.
+                    My expectations were realised when my mentor helped me chart out a short term (1-2 years) career plan. I wanted to explore and discover my interests. He guided me by planning and mapping all the opportunities in the respective fields. He also gave me a Gullu treat on the first day to help break the ice!<br>
+                    Concluding, I would like to suggest to all the future mentees that it is always best to help your mentors relate to you. Enhancing relatability will work wonders if you have picked a mentor who is quite similar to you. I feel it is a bit trivial to ask about academics from the alumni mentors. However, you should use it as the first step to learning networking. It is also an excellent opportunity to learn from their perspective since they have gained quite some professional experience after their journey in IIT
+    
+                    <br><br>
+                </blockquote>
+                </p>
+            </div>
+            
+            <div id="testimonial-box">
+                <img src="{% static "testimonials/Vinayak.png" %}"
+                    id="testimonial-image" height="100rem"  width="45%" style="height : 10rem; width:10rem;">
+                <h4 id="testimonial-name"> Vinayak Jauhari </h4>
+                {% comment %} <small id="testimonial-subtitle">Aero</small> {% endcomment %}
+                <p id="testimonial-text">
+                <blockquote style="font-size : 1rem">
+                    <br><br>In my first year, I was confused about preparing for the profile or job I wanted. I soon discovered that there were a lot of students with aims similar to mine. It was then that I decided to participate in ASMP. My mentor gave me some of the most valuable suggestions that have helped me prepare for the placements. Initially, it does take time to break the ice and to get familiar with the mentor. During our first interaction, I hesitated a lot in asking him about his private and professional life. He understood my doubts and told me not to be frightened and call him whenever I wanted. Since then, we were in regular touch and I was able to clear my doubts freely. Because of this homogeneity of thought and experience, ASMP shines above all the other types of mentorship that IIT offers. I would conclude by saying that mentees should always try to get along with their mentors as you do with your elder brother or friends and ask all kinds of doubts. It’s better to ask now than to regret your decisions later.
+    
+                    <br><br>
+                </blockquote>
+                </p>
+            </div>
+            <div id="testimonial-box">
+                <img src="{% static "testimonials/Vavilapalli.png" %}"
+                    id="testimonial-image" height="100rem"  width="45%" style="height : 10rem; width:10rem;">
+                <h4 id="testimonial-name"> Vavilapalli Venkat sai </h4>
+                {% comment %} <small id="testimonial-subtitle">Aero</small> {% endcomment %}
+                <p id="testimonial-text">
+                <blockquote style="font-size : 1rem">
+                    <br><br>ASMP beautifully connects talent with the relevant mentor; I was given the option of pitching from a pool of brilliant alumni.From experience, I can confirm that the mentors provided in this program are one of the best! Not only successful in their respective fields, but they are also kind and understanding- which is what appealed to me the most in this program. 
+    Once the program started, I was able to strongly connect with the right person. We spoke about our careers and lives. And he assigned me a few tasks to help me cope with my current situation and achieve my dreams. All in all, the programme was enjoyable and educational. The entire procedure paved my steps to reach the right place. I am ever thankful to SARC for this platform and of course, to my mentor, Mr. Saharsha.
+    
+                    <br><br>
+                </blockquote>
+                </p>
+            </div>
+            {% comment %} <h3>Bonus Testimonial: A perspective from the other side! </h3> {% endcomment %}
+            <div id="testimonial-box">
+                <img src="{% static "testimonials/Antariksh.png" %}"
+                    id="testimonial-image" height="100rem"  width="45%" style="height : 10rem; width:10rem;">
+                <h4 id="testimonial-name"> Antariksh Bothale    </h4>
+                <small id="testimonial-subtitle">Alum</small>
+                <p id="testimonial-text">
+                <blockquote style="font-size : 1rem">
+                    <br><br>As an alumnus of such a premier institute, I have always wished to maintain a deep connection with IIT. ASMP gave me an excellent platform to mentor students while also maintaining a relationship with the institute. Besides, I enjoy mentoring students, so it was also a good fit from that point of view!
+    As a mentor in ASMP, I was presented with a unique opportunity: help your mentees grow academically and professionally by sharing your perspective and experiences! I successfully guided a few of my mentees and felt really happy I was able to help. I still remember one of my mentees, who introduced himself via email. He also had a series of doubts about his career options. Clearly, he had the spark, and I had the match! We stayed in touch for the time he was in college through periodic texts and a few calls. I used to guide him in course selection, internship applications, interview preparation and the like.
+    Honestly, the best interactions have been with mentees who were clear about what they wanted from me and maintained an ongoing relationship rather than just contacting me one-off. Therefore my suggestion would be to remain in active contact with your alumni mentors and keep them updated about your academic progress while also utilising our guidance to pave your way towards your desired career.
+    
+                    <br><br>
+                </blockquote>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    
+    <script>
+    </script>
+</div>
+
+
+
+
+
+{% endblock %}
