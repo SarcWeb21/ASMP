@@ -131,13 +131,16 @@ LOGIN_URL='login'
 # Using Simple Mail Transfer Protocol
 
 
-EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT=587
-EMAIL_USE_TLS= True
-EMAIL_HOST_USER= 'manavdoshiwis@gmail.com'
-EMAIL_HOST_PASSWORD= 'Manav@2612'
 
+
+SENDGRID_API_KEY = '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'
+EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
+# EMAIL_HOST = 'smtp.sendgrid.net'
+# EMAIL_HOST_USER = 'apikey' 
+# EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
