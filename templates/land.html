@@ -1,13 +1,14 @@
+
 {% extends "base.html" %}
 {% block content %}
-
-<div style="height: 130vh;">
+{%load static%}
+<div style="height: 140vh;">
     <div id="set-height"></div>
 
     <video id="v0" tabindex="0", autobuffer preload>
-        <source type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' src="static/handshake.mp4"></source>
+        <source type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' src="static/handshake.mp4"></source>
     </video>
-    <script src = "static/sticky.js"></script>
+    <script src="static/sticky.js"></script>
     <script>
 
         enterView({
@@ -19,7 +20,7 @@
     
         var frameNumber = 0, // start video at frame 0
         // lower numbers = faster playback
-        playbackConst = 400, 
+        playbackConst = 1000, 
         // get page height from video duration
         setHeight = document.getElementById("set-height"), 
         // select video element         
@@ -43,7 +44,7 @@
     
     </script>
 </div>
-<div style="background-color: aqua; background-attachment: fixed;">
+<div style="background-color:#5c9398"> 
     <div class="progressm">
         <div class="progressbar-wrap">
             <div class="progressbar"></div>
@@ -68,15 +69,15 @@
         }
         updateProg()
     </script>
-    <div class="main" style="margin-top:2rem; margin-left:2rem;">
-        <h2>ASMP</h2>
+    <div class="main" style="margin-top:2rem; margin-left:2rem;color: #190644;">
+        <h1>ASMP</h1>
     </div>
     <div class="wrapperm">
         <div id="sect">
             <div id="circle" style="color:white;border-radius: 50%; height: 400px; width: 400px; ">
                 About Us
             </div>
-            <div id="aboutbox" style="color:white; width:340px; font-size:0.9rem;">
+            <div id="aboutbox" style="color:white; width:330px; font-size:0.9rem;">
                 Alumni Student Mentorship Programme (ASMP) is an initiative by Student Alumni Relation Cell with an objective of creating a platform to foster relationships between alumni mentors and students that last forever. ASMP achieves this aim by bringing together alumni mentors and student mentees through various events to help form a rapport and strengthen the connection between them, thus enhancing the IITB Alumni network.
     
             </div>
@@ -104,16 +105,90 @@
             <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important; background-color : turquoise !important;">
                 <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
                     aria-controls="collapseExample" style="color: white; padding: 0px 10px;margin-left: 100px; margin-right:100px">
-                    The question goes here
+                    Approximately how many days will it take to get the mentor and further information regarding the process:
                     <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
                 </a>
             </div>
         </div>
         <div class="collapse" id="collapseExample">
             <div class="m" style="color : white !important; margin-left:100px; margin-right:100px">
-                Some placeholder content for the collapse component. This panel is hidden by default but revealed when the
-                user
-                activates the relevant trigger.
+                You will be allocated a mentor or be given further information regarding your allocation within 15 days.
+            </div>
+        </div>
+        <div class="d-flex mb-3" style="margin-left: 100px; margin-top: 3rem">
+            <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important; background-color : turquoise !important;">
+                <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                    aria-controls="collapseExample" style="color: white; padding: 0px 10px;margin-left: 100px; margin-right:100px">
+                    What is the time for which I will be allocated a mentor
+    
+                    <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample">
+            <div class="m" style="color : white !important; margin-left:100px; margin-right:100px">
+                Your mentor is being assigned to you for a year, officially, but most people build lifelong bonds with their mentors and remain in touch even after the programme ends.
+    
+            </div>
+        </div>
+        <div class="d-flex mb-3" style="margin-left: 100px ; margin-top: 3rem">
+            <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important; background-color : turquoise !important;">
+                <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                    aria-controls="collapseExample" style="color: white; padding: 0px 10px;margin-left: 100px; margin-right:100px">
+                   I'm having problems with the login. What should I do?
+    
+                    <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample">
+            <div class="m" style="color : white !important; margin-left:100px; margin-right:100px">
+               (mention general troubleshooting measures after asking the web team) If this doesn't work out, contact an ASMP coordinator as soon as possible.
+            </div>
+        </div>
+        <div class="d-flex mb-3" style="margin-left: 100px; margin-top: 3rem">
+            <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important; background-color : turquoise !important;">
+                <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                    aria-controls="collapseExample" style="color: white; padding: 0px 10px;margin-left: 100px; margin-right:100px">
+                   How will I get notified about the process:
+    
+                    <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample">
+            <div class="m" style="color : white !important; margin-left:100px; margin-right:100px">
+               You will receive emails notifying you about all the updates regarding the allocation. You will also receive contact details of your allocated mentor and information about the interactive sessions scheduled by us via email.
+            </div>
+        </div>
+        <div class="d-flex mb-3" style="margin-left: 100px; margin-top: 3rem">
+            <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important; background-color : turquoise !important;">
+                <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                    aria-controls="collapseExample" style="color: white; padding: 0px 10px;margin-left: 100px; margin-right:100px">
+                   How will my personal details be used:
+    
+                    <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample">
+            <div class="m" style="color : white !important; margin-left:100px; margin-right:100px">
+               Your personal details such as your name, roll number, and contact information will remain confidential till the allocation procedure. Only the allocated mentor will have access to your contact information.
+            </div>
+        </div>
+        <div class="d-flex mb-3" style="margin-left: 100px; margin-top: 3rem">
+            <div class="p-2 ml-auto align-self-center" style="z-index: 2 !important; padding: 20px 0px !important; background-color : turquoise !important;">
+                <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                    aria-controls="collapseExample" style="color: white; padding: 0px 10px;margin-left: 100px; margin-right:100px">
+                   What is the process after registration for a mentee:
+                    <img src="static/download.png" style="width: 2.2%; margin: 0px 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample">
+            <div class="m" style="color : white !important; margin-left:100px; margin-right:100px">
+               A mentor will be allocated to you based on your preferences and SOPs after the registration is completed. You have to initiate the conversation with your mentor and then you can mutually decide the way ahead. We will also have a few follow-ups for your assistance.
+    
             </div>
         </div>
         <!--carousel-->
@@ -124,20 +199,29 @@
                 <div></div>
                 <div></div>
                 <div></div>
+                <div></div>
               </div>
             </li>
             <li class="hmm">
             <div class="progressBarContainer">
               <div style="margin: 40px; position: relative;">
-                <h3>Slide 1</h3>
+                <h4>Break The Ice</h4>
+                <p style="font-size : 0.9rem">Break The Ice kickstarts the mentoring process through a lunch-meeting for the mentor and mentee, which also fosters a personal interaction between the two.</p>
                 <span data-slick-index="0" class="progressBar" style="position: absolute; top: 0%; left: -10px;"></span>
               </div>
               <div style="margin: 40px; position: relative;">
-                <h3>Slide 2</h3>
+                <h4>Mentor-Mentee Meetup</h4>
+                <p style="font-size : 0.9rem">An open house discussion between alumni and mentees aimed at evaluation of the current ASMP structure through the lens of both alumni and students.</p>
                 <span data-slick-index="1" class="progressBar" style="position: absolute; top: 0%; left: -10px;"></span>
               </div>
               <div style="margin: 40px; position: relative;">
-                <h3>Slide 3</h3>
+                <h4>Shadow Programme</h4>
+                <p style="font-size : 0.9rem">The Shadow Programme lets mentees have a taste of the professional life of their mentor alumni by arranging a visit to the workplace of the mentor.</p>
+                <span data-slick-index="2" class="progressBar" style="position: absolute; top: 0%; left: -10px;"></span>
+              </div>
+              <div style="margin: 40px; position: relative;">
+                <h4>Group Mentoring</h4>
+                <p style="font-size : 0.9rem">Mentors are invited to interact with a group of 4-5 students to together give them insight into new ideas, opportunities and career options of their interest.</p>
                 <span data-slick-index="2" class="progressBar" style="position: absolute; top: 0%; left: -10px;"></span>
               </div>
             </div>
@@ -332,53 +416,60 @@
         </div>
         <div id="testimonials">
             <div id="testimonial-box">
-                <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg"
-                    id="testimonial-image" height="100rem" width="25%">
-                <h4 id="testimonial-name"> Mayank </h4>
-                <small id="testimonial-subtitle">Aero</small>
+                <img src="{% static "testimonials/shashank.png" %}"
+                    id="testimonial-image" height="100rem" width="45%" style="height : 10rem; width:10rem;">
+                <h4 id="testimonial-name"> Shashank  </h4>
+                {% comment %} <small id="testimonial-subtitle">Aero</small> {% endcomment %}
+                <p id="testimonial-text" >
+                <blockquote style="font-size : 1rem">
+                    <br><br>As a college student, it is often tough to get corrective guidance from an experienced individual. The student community around us is just as inexperienced as us. This is where ASMP appealed to me. Experienced alumni with tremendous professional experience mentor students to help us align our core priorities. Dynamic guidance ensures that we get the right advice at the right time to maximise output and streamline efforts so that we don't get any wake-up calls when placements come knocking a few years down the line.
+                    My expectations were realised when my mentor helped me chart out a short term (1-2 years) career plan. I wanted to explore and discover my interests. He guided me by planning and mapping all the opportunities in the respective fields. He also gave me a Gullu treat on the first day to help break the ice!<br>
+                    Concluding, I would like to suggest to all the future mentees that it is always best to help your mentors relate to you. Enhancing relatability will work wonders if you have picked a mentor who is quite similar to you. I feel it is a bit trivial to ask about academics from the alumni mentors. However, you should use it as the first step to learning networking. It is also an excellent opportunity to learn from their perspective since they have gained quite some professional experience after their journey in IIT
+    
+                    <br><br>
+                </blockquote>
+                </p>
+            </div>
+            
+            <div id="testimonial-box">
+                <img src="{% static "testimonials/Vinayak.png" %}"
+                    id="testimonial-image" height="100rem"  width="45%" style="height : 10rem; width:10rem;">
+                <h4 id="testimonial-name"> Vinayak Jauhari </h4>
+                {% comment %} <small id="testimonial-subtitle">Aero</small> {% endcomment %}
                 <p id="testimonial-text">
-                <blockquote>
-                    <br><br>The testimonial comes in this box which is rounded and will be arranged alternate
-                    left and right
+                <blockquote style="font-size : 1rem">
+                    <br><br>In my first year, I was confused about preparing for the profile or job I wanted. I soon discovered that there were a lot of students with aims similar to mine. It was then that I decided to participate in ASMP. My mentor gave me some of the most valuable suggestions that have helped me prepare for the placements. Initially, it does take time to break the ice and to get familiar with the mentor. During our first interaction, I hesitated a lot in asking him about his private and professional life. He understood my doubts and told me not to be frightened and call him whenever I wanted. Since then, we were in regular touch and I was able to clear my doubts freely. Because of this homogeneity of thought and experience, ASMP shines above all the other types of mentorship that IIT offers. I would conclude by saying that mentees should always try to get along with their mentors as you do with your elder brother or friends and ask all kinds of doubts. It’s better to ask now than to regret your decisions later.
+    
                     <br><br>
                 </blockquote>
                 </p>
             </div>
             <div id="testimonial-box">
-                <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg"
-                    id="testimonial-image" height="100rem" width="25%">
-                <h4 id="testimonial-name"> Mayank </h4>
-                <small id="testimonial-subtitle">Aero</small>
+                <img src="{% static "testimonials/Vavilapalli.png" %}"
+                    id="testimonial-image" height="100rem"  width="45%" style="height : 10rem; width:10rem;">
+                <h4 id="testimonial-name"> Vavilapalli Venkat sai </h4>
+                {% comment %} <small id="testimonial-subtitle">Aero</small> {% endcomment %}
                 <p id="testimonial-text">
-                <blockquote>
-                    <br><br>The testimonial comes in this box which is rounded and will be arranged alternate
-                    left and right
+                <blockquote style="font-size : 1rem">
+                    <br><br>ASMP beautifully connects talent with the relevant mentor; I was given the option of pitching from a pool of brilliant alumni.From experience, I can confirm that the mentors provided in this program are one of the best! Not only successful in their respective fields, but they are also kind and understanding- which is what appealed to me the most in this program. 
+    Once the program started, I was able to strongly connect with the right person. We spoke about our careers and lives. And he assigned me a few tasks to help me cope with my current situation and achieve my dreams. All in all, the programme was enjoyable and educational. The entire procedure paved my steps to reach the right place. I am ever thankful to SARC for this platform and of course, to my mentor, Mr. Saharsha.
+    
                     <br><br>
                 </blockquote>
                 </p>
             </div>
+            {% comment %} <h3>Bonus Testimonial: A perspective from the other side! </h3> {% endcomment %}
             <div id="testimonial-box">
-                <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg"
-                    id="testimonial-image" height="100rem" width="25%">
-                <h4 id="testimonial-name"> Mayank </h4>
-                <small id="testimonial-subtitle">Aero</small>
+                <img src="{% static "testimonials/Antariksh.png" %}"
+                    id="testimonial-image" height="100rem"  width="45%" style="height : 10rem; width:10rem;">
+                <h4 id="testimonial-name"> Antariksh Bothale    </h4>
+                <small id="testimonial-subtitle">Alum</small>
                 <p id="testimonial-text">
-                <blockquote>
-                    <br><br>The testimonial comes in this box which is rounded and will be arranged alternate
-                    left and right
-                    <br><br>
-                </blockquote>
-                </p>
-            </div>
-            <div id="testimonial-box">
-                <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcuttingedgepr.com%2Fwp-content%2Fuploads%2F2015%2F02%2FTestimonial-customer-review-2-Shutterstock.jpg&imgrefurl=https%3A%2F%2Fcuttingedgepr.com%2Fuse-power-testimonials-marketing-communication%2F&tbnid=sc546vj0dVhFiM&vet=12ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg..i&docid=a1h4Y8tevNVlsM&w=908&h=615&q=testimonial&ved=2ahUKEwjFwom0l5zyAhWNjEsFHR5mBvEQMyggegUIARCSAg"
-                    id="testimonial-image" height="100rem" width="25%">
-                <h4 id="testimonial-name"> Mayank </h4>
-                <small id="testimonial-subtitle">Aero</small>
-                <p id="testimonial-text">
-                <blockquote>
-                    <br><br>The testimonial comes in this box which is rounded and will be arranged alternate
-                    left and right
+                <blockquote style="font-size : 1rem">
+                    <br><br>As an alumnus of such a premier institute, I have always wished to maintain a deep connection with IIT. ASMP gave me an excellent platform to mentor students while also maintaining a relationship with the institute. Besides, I enjoy mentoring students, so it was also a good fit from that point of view!
+    As a mentor in ASMP, I was presented with a unique opportunity: help your mentees grow academically and professionally by sharing your perspective and experiences! I successfully guided a few of my mentees and felt really happy I was able to help. I still remember one of my mentees, who introduced himself via email. He also had a series of doubts about his career options. Clearly, he had the spark, and I had the match! We stayed in touch for the time he was in college through periodic texts and a few calls. I used to guide him in course selection, internship applications, interview preparation and the like.
+    Honestly, the best interactions have been with mentees who were clear about what they wanted from me and maintained an ongoing relationship rather than just contacting me one-off. Therefore my suggestion would be to remain in active contact with your alumni mentors and keep them updated about your academic progress while also utilising our guidance to pave your way towards your desired career.
+    
                     <br><br>
                 </blockquote>
                 </p>
@@ -390,64 +481,8 @@
     
     <script>
     </script>
-    {% comment %} <div id="team-heading">  
-        <div id="team-heading-text">
-    <h1>Team</h1>
-    </div>
-    </div>
-    <div id="center-image">
-        <div class="named">
-            <img src="data:image/jpeg;base64,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" height="80%" width="100%">
-            Name
-            <br>
-            Designation
-        </div>
-    </div>
-    <br>
-    <br> {% endcomment %}
-    {% comment %} <div id="team">
-        <div class="named">
-            <img src="data:image/jpeg;base64,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" height="80%" width="100%">
-            Name
-            <br>
-            Designation
-        </div>
-        <div class="named">
-            <img src="data:image/jpeg;base64,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" height="80%" width="100%">
-            Name
-            <br>
-            Designation
-        </div>
-        <div class="named">
-            <img src="data:image/jpeg;base64,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" height="80%" width="100%">
-            Name
-            <br>
-            Designation
-        </div>
-    </div>
-    <br>
-    <div id="team">
-        <div class="named">
-            <img src="data:image/jpeg;base64,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"
-                height="80%" width="100%">
-            Name
-            <br>
-            Designation
-        </div>
-        <div class="named">
-            <img src="data:image/jpeg;base64,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" height="80%" width="100%">
-            Name
-            <br>
-            Designation
-        </div>
-        <div class="named">
-            <img src="data:image/jpeg;base64,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" height="80%" width="100%">
-            Name
-            <br>
-            Designation
-        </div>
-</div> {% endcomment %}
-{% comment %} </div> {% endcomment %}
+</div>
+
 
 
 

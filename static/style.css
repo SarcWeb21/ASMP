@@ -180,13 +180,14 @@ h3 {
   }
   .progressBarContainer div {
 	display: block;
-	width: 200px;
+	width: 400px;
 	height: 60px;
 	padding: 0;
 	cursor: pointer;
 	margin-right: 5%;
-	color: black;
-  }
+	color: white;
+	/* margin-top: 10rem; */
+}
 
   .hmm{
 	  position: absolute;
